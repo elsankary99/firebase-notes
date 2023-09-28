@@ -12,12 +12,16 @@ class AppStrings {
 
   // Texts
   static const String createAccount = 'CREATE ACCOUNT';
+  static const String enterYourDetails = 'Enter your details to continue';
+  static const String letKnowYou = 'Let’s get to know you !';
   static const String welcomeBack = 'Welcome Back !';
   static const String dntHaveAccount = 'Don`t have an account ?  ';
+  static const String alreadyHaveAccount = 'Already have an account ?  ';
   static const String pleaseLoginWithEmail = 'Please Login With Your Email';
   static const String emailAddress = 'Email Address';
+  static const String userName = 'User Name';
   static const String login = 'LOG IN';
-  static const String signUP = 'SignUP';
+  static const String signUP = 'Sign UP';
   static const String logout = 'LOG OUT';
   static const String back = 'BACK TO DASHBOARD';
   static const String exit = 'Exit';

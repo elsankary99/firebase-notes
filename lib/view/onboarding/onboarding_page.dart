@@ -23,7 +23,9 @@ class OnBoardingPage extends StatelessWidget {
             SliverToBoxAdapter(child: SizedBox(height: context.height * 0.035)),
             SliverToBoxAdapter(
                 child: CustomOrangeButton(
-                    text: AppStrings.createAccount, onPressed: () {})),
+                    text: AppStrings.createAccount,
+                    onPressed: () =>
+                        context.router.replace(const SignUpRoute()))),
             SliverToBoxAdapter(child: SizedBox(height: context.height * 0.025)),
             SliverToBoxAdapter(
                 child: CustomWhiteButton(

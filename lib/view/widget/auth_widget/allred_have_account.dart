@@ -5,8 +5,8 @@ import 'package:fb_note/core/constant/app_text_style.dart';
 import 'package:fb_note/core/router/app_router.dart';
 import 'package:flutter/material.dart';
 
-class DontHaveAccount extends StatelessWidget {
-  const DontHaveAccount({
+class AlreadyHaveAccount extends StatelessWidget {
+  const AlreadyHaveAccount({
     super.key,
   });
 
@@ -15,12 +15,12 @@ class DontHaveAccount extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(AppStrings.dntHaveAccount, style: AppTextStyle.lato300Style18),
+        Text(AppStrings.alreadyHaveAccount, style: AppTextStyle.lato300Style18),
         InkWell(
           onTap: () {
-            context.router.replace(const SignUpRoute());
+            context.router.replace(const LoginRoute());
           },
-          child: Text(AppStrings.signUP,
+          child: Text(AppStrings.login,
               style: AppTextStyle.lato700Style14
                   .copyWith(color: AppColors.orange)),
         ),

@@ -9,6 +9,7 @@ import 'package:fb_note/view/widget/auth_widget/dont_have_account.dart';
 import 'package:fb_note/view/widget/auth_widget/forget_password_text.dart';
 import 'package:fb_note/view/widget/auth_widget/welcome_text.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 @RoutePage()
 class LoginPage extends StatelessWidget {
@@ -30,9 +31,16 @@ class LoginPage extends StatelessWidget {
             ),
           ),
           SliverToBoxAdapter(child: SizedBox(height: context.height * 0.1)),
-          const SliverToBoxAdapter(child: WelcomeText()),
+          const SliverToBoxAdapter(
+              child: WelcomeText(
+            title1: AppStrings.welcomeBack,
+            title2: AppStrings.pleaseLoginWithEmail,
+          )),
           SliverToBoxAdapter(child: SizedBox(height: context.height * 0.1)),
-          const SliverToBoxAdapter(child: CustomTextFormField()),
+          const SliverToBoxAdapter(
+              child: CustomTextFormField(
+                  hint: AppStrings.emailAddress,
+                  icon: FontAwesomeIcons.envelope)),
           SliverToBoxAdapter(child: SizedBox(height: context.height * 0.03)),
           const SliverToBoxAdapter(child: CustomPasswordFormField()),
           SliverToBoxAdapter(child: SizedBox(height: context.height * 0.02)),

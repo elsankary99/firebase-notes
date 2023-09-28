@@ -1,12 +1,11 @@
 import 'package:fb_note/core/constant/app-colors.dart';
-import 'package:fb_note/core/constant/app_strings.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CustomTextFormField extends StatelessWidget {
-  const CustomTextFormField({
-    super.key,
-  });
+  final IconData icon;
+  final String hint;
+  const CustomTextFormField(
+      {super.key, required this.icon, required this.hint});
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +15,8 @@ class CustomTextFormField extends StatelessWidget {
           prefixIconColor: AppColors.orange,
           focusedBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: AppColors.orange, width: 1.5)),
-          hintText: AppStrings.emailAddress,
-          prefixIcon: const Icon(FontAwesomeIcons.envelope),
+          hintText: hint,
+          prefixIcon: Icon(icon),
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(5))),
     );
   }
