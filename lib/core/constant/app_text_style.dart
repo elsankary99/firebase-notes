@@ -27,6 +27,19 @@ abstract class AppTextStyle {
     color: AppColors.black,
     fontFamily: "Lato",
   );
+
+  static final lato700Style18 = TextStyle(
+    fontSize: 18.sp,
+    fontWeight: FontWeight.w700,
+    color: AppColors.black,
+    fontFamily: "Lato",
+  );
+  static final lato700Style14 = TextStyle(
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w700,
+    color: AppColors.orange,
+    fontFamily: "Lato",
+  );
 }
 
 // 100 – Thin

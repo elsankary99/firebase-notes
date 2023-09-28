@@ -12,8 +12,12 @@ class AppStrings {
 
   // Texts
   static const String createAccount = 'CREATE ACCOUNT';
+  static const String welcomeBack = 'Welcome Back !';
+  static const String dntHaveAccount = 'Don`t have an account ?  ';
+  static const String pleaseLoginWithEmail = 'Please Login With Your Email';
   static const String emailAddress = 'Email Address';
   static const String login = 'LOG IN';
+  static const String signUP = 'SignUP';
   static const String logout = 'LOG OUT';
   static const String back = 'BACK TO DASHBOARD';
   static const String exit = 'Exit';
@@ -46,6 +50,7 @@ class AppStrings {
   static const continue_with_apple = 'Continue with apple';
   static const email_already_exits = 'This email is already exists';
   static const forgot_pwd = 'Forgot Password';
+  static const forgotPassword = 'Forgot Password ?';
   static const dark_mode = 'Dark Mode';
   static const home_empty_note = 'Create your first note !';
   static const add_note = 'Note';
