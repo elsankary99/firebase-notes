@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:fb_note/core/constant/app_strings.dart';
 import 'package:fb_note/core/constant/app_text_style.dart';
 import 'package:fb_note/core/extension/media_query.dart';
+import 'package:fb_note/core/router/app_router.dart';
 import 'package:fb_note/core/widget/custom_orange_buton.dart';
 import 'package:fb_note/view/widget/auth_widget/custom_password_form_field.dart';
 import 'package:fb_note/view/widget/auth_widget/custom_text_form_field.dart';
@@ -47,8 +48,11 @@ class LoginPage extends StatelessWidget {
           const SliverToBoxAdapter(child: CustomForgetPassText()),
           SliverToBoxAdapter(child: SizedBox(height: context.height * 0.15)),
           SliverToBoxAdapter(
-              child:
-                  CustomOrangeButton(onPressed: () {}, text: AppStrings.login)),
+              child: CustomOrangeButton(
+                  onPressed: () {
+                    context.router.replace(const HomeRoute());
+                  },
+                  text: AppStrings.login)),
           SliverToBoxAdapter(child: SizedBox(height: context.height * 0.02)),
           const SliverToBoxAdapter(child: DontHaveAccount()),
           SliverToBoxAdapter(child: SizedBox(height: context.height * 0.02)),

@@ -1,12 +1,82 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:dot_navigation_bar/dot_navigation_bar.dart';
+import 'package:fb_note/core/constant/app-colors.dart';
+import 'package:fb_note/view/Home/help_screen.dart';
+import 'package:fb_note/view/Home/note_screen.dart';
+import 'package:fb_note/view/Home/ocr_screen.dart';
+import 'package:fb_note/view/Home/user_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 @RoutePage()
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage>
+    with SingleTickerProviderStateMixin {
+  late TabController controller;
+  final List<Widget> children = [
+    const NoteScreen(),
+    const OCRScreen(),
+    const HelpScreen(),
+    const UserScreen(),
+  ];
+  @override
+  void initState() {
+    controller = TabController(length: 4, vsync: this);
+    super.initState();
+  }
+
+  int currentIndex = 0;
+
+  void _handleIndexChanged(i) {
+    setState(() {
+      currentIndex = i;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return Scaffold(
+      body: TabBarView(
+        physics: const NeverScrollableScrollPhysics(),
+        controller: controller,
+        children: children,
+      ),
+      bottomNavigationBar: DotNavigationBar(
+        currentIndex: currentIndex,
+        onTap: _handleIndexChanged,
+        dotIndicatorColor: Colors.transparent,
+        items: [
+          /// Home
+          DotNavigationBarItem(
+            icon: const Icon(FontAwesomeIcons.clipboard),
+            selectedColor: AppColors.orange,
+          ),
+
+          /// Likes
+          DotNavigationBarItem(
+            icon: const Icon(FontAwesomeIcons.images),
+            selectedColor: AppColors.orange,
+          ),
+
+          /// Search
+          DotNavigationBarItem(
+            icon: const Icon(Icons.person),
+            selectedColor: AppColors.orange,
+          ),
+
+          /// Profile
+          DotNavigationBarItem(
+            icon: const Icon(FontAwesomeIcons.circleQuestion),
+            selectedColor: AppColors.orange,
+          ),
+        ],
+      ),
+    );
   }
 }
