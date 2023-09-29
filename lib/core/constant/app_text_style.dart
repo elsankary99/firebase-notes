@@ -15,6 +15,12 @@ abstract class AppTextStyle {
     color: AppColors.black,
     fontFamily: "Lato",
   );
+  static final lato400Style24 = TextStyle(
+    fontSize: 22.sp,
+    fontWeight: FontWeight.w400,
+    color: AppColors.black,
+    fontFamily: "Lato",
+  );
   static final lato400Style14 = TextStyle(
     fontSize: 14.sp,
     fontWeight: FontWeight.w400,
@@ -37,6 +43,12 @@ abstract class AppTextStyle {
     fontSize: 18.sp,
     fontWeight: FontWeight.w700,
     color: AppColors.black,
+    fontFamily: "Lato",
+  );
+  static final lato700Style40 = TextStyle(
+    fontSize: 40.sp,
+    fontWeight: FontWeight.w700,
+    color: Colors.white,
     fontFamily: "Lato",
   );
   static final lato700Style14 = TextStyle(

@@ -12,6 +12,7 @@ class AppStrings {
 
   // Texts
   static const String createAccount = 'CREATE ACCOUNT';
+  static const String tapToView = 'Tap to view';
   static const String notes = 'Notes';
   static const String pleaseEnterYourAccount =
       ' Please enter your account’s email address \n and we will send you a link \n to reset your password.   ';

@@ -1,6 +1,7 @@
 import 'package:fb_note/core/constant/app_strings.dart';
 import 'package:fb_note/core/extension/media_query.dart';
 import 'package:fb_note/core/widget/custom_orange_buton.dart';
+import 'package:fb_note/view/widget/home_widget/custom_appbar.dart';
 import 'package:fb_note/view/widget/home_widget/user_information.dart';
 import 'package:fb_note/view/widget/home_widget/user_screen_setting.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +14,7 @@ class UserScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return CustomScrollView(
       slivers: [
+        customAppBar,
         const SliverToBoxAdapter(child: UserInformation()),
         const SliverToBoxAdapter(child: Divider(thickness: 2)),
         const SliverToBoxAdapter(child: UserScreenSetting()),

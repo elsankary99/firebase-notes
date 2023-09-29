@@ -1,6 +1,9 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:fb_note/core/constant/app-colors.dart';
 import 'package:fb_note/core/extension/media_query.dart';
+import 'package:fb_note/core/router/app_router.dart';
 import 'package:fb_note/view/widget/home_widget/create_first_note.dart';
+import 'package:fb_note/view/widget/home_widget/custom_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -14,6 +17,7 @@ class NoteScreen extends ConsumerWidget {
         CustomScrollView(
           physics: const BouncingScrollPhysics(),
           slivers: [
+            customAppBar,
             SliverToBoxAdapter(child: SizedBox(height: context.height * 0.2)),
             const SliverToBoxAdapter(child: CreateYourFirstNoteWidget()),
           ],
@@ -22,7 +26,9 @@ class NoteScreen extends ConsumerWidget {
           bottom: context.height * 0.15,
           right: context.width * 0.05,
           child: FloatingActionButton(
-            onPressed: () {},
+            onPressed: () {
+              context.router.push(const AddNoteRoute());
+            },
             backgroundColor: AppColors.orange,
             child: const Icon(Icons.add),
           ),
