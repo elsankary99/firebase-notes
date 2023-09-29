@@ -5,6 +5,7 @@ import 'package:fb_note/view/Home/help_screen.dart';
 import 'package:fb_note/view/Home/note_screen.dart';
 import 'package:fb_note/view/Home/ocr_screen.dart';
 import 'package:fb_note/view/Home/user_screen.dart';
+import 'package:fb_note/view/widget/home_widget/custom_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -18,6 +19,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin {
+  int currentIndex = 0;
   late TabController controller;
   List<DotNavigationBarItem> items = [
     /// Home
@@ -56,17 +58,19 @@ class _HomePageState extends State<HomePage>
     super.initState();
   }
 
-  int currentIndex = 0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
+      backgroundColor: Colors.white,
+      appBar: customAppBar,
       body: TabBarView(
         physics: const NeverScrollableScrollPhysics(),
         controller: controller,
         children: children,
       ),
       bottomNavigationBar: DotNavigationBar(
+        backgroundColor: AppColors.lightGrey,
         currentIndex: currentIndex,
         onTap: (i) {
           setState(() {

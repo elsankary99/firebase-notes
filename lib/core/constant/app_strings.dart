@@ -12,6 +12,7 @@ class AppStrings {
 
   // Texts
   static const String createAccount = 'CREATE ACCOUNT';
+  static const String notes = 'Notes';
   static const String pleaseEnterYourAccount =
       ' Please enter your account’s email address \n and we will send you a link \n to reset your password.   ';
   static const String enterYourDetails = 'Enter your details to continue';
@@ -83,6 +84,7 @@ class AppStrings {
   static const select_layout = 'Select layout';
   static const lock_notes_pwd = 'Password';
   static const reset_acc_pwd = 'RESET ACCOUNT PASSWORD';
+  static const reset_pwd = 'Reset Password';
   static const enter_master_pwd = 'Enter master password';
   static const change_master_pwd = 'Change Master Password';
   static const change_master_pwd2 = 'CHANGE MASTER PASSWORD';
