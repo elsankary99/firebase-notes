@@ -19,11 +19,36 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin {
   late TabController controller;
+  List<DotNavigationBarItem> items = [
+    /// Home
+    DotNavigationBarItem(
+      icon: const Icon(FontAwesomeIcons.clipboard),
+      selectedColor: AppColors.orange,
+    ),
+
+    /// Likes
+    DotNavigationBarItem(
+      icon: const Icon(FontAwesomeIcons.images),
+      selectedColor: AppColors.orange,
+    ),
+
+    /// Search
+    DotNavigationBarItem(
+      icon: const Icon(FontAwesomeIcons.user),
+      selectedColor: AppColors.orange,
+    ),
+
+    /// Profile
+    DotNavigationBarItem(
+      icon: const Icon(FontAwesomeIcons.circleQuestion),
+      selectedColor: AppColors.orange,
+    ),
+  ];
   final List<Widget> children = [
     const NoteScreen(),
     const OCRScreen(),
-    const HelpScreen(),
     const UserScreen(),
+    const HelpScreen(),
   ];
   @override
   void initState() {
@@ -32,12 +57,6 @@ class _HomePageState extends State<HomePage>
   }
 
   int currentIndex = 0;
-
-  void _handleIndexChanged(i) {
-    setState(() {
-      currentIndex = i;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,33 +68,14 @@ class _HomePageState extends State<HomePage>
       ),
       bottomNavigationBar: DotNavigationBar(
         currentIndex: currentIndex,
-        onTap: _handleIndexChanged,
+        onTap: (i) {
+          setState(() {
+            controller.animateTo(i);
+            currentIndex = i;
+          });
+        },
         dotIndicatorColor: Colors.transparent,
-        items: [
-          /// Home
-          DotNavigationBarItem(
-            icon: const Icon(FontAwesomeIcons.clipboard),
-            selectedColor: AppColors.orange,
-          ),
-
-          /// Likes
-          DotNavigationBarItem(
-            icon: const Icon(FontAwesomeIcons.images),
-            selectedColor: AppColors.orange,
-          ),
-
-          /// Search
-          DotNavigationBarItem(
-            icon: const Icon(Icons.person),
-            selectedColor: AppColors.orange,
-          ),
-
-          /// Profile
-          DotNavigationBarItem(
-            icon: const Icon(FontAwesomeIcons.circleQuestion),
-            selectedColor: AppColors.orange,
-          ),
-        ],
+        items: items,
       ),
     );
   }
