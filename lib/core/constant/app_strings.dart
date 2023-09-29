@@ -12,6 +12,8 @@ class AppStrings {
 
   // Texts
   static const String createAccount = 'CREATE ACCOUNT';
+  static const String pleaseEnterYourAccount =
+      ' Please enter your account’s email address \n and we will send you a link \n to reset your password.   ';
   static const String enterYourDetails = 'Enter your details to continue';
   static const String letKnowYou = 'Let’s get to know you !';
   static const String welcomeBack = 'Welcome Back !';
