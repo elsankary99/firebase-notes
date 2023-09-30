@@ -26,6 +26,8 @@ class AppStrings {
   static const String sureExitTheApp = 'Are you sure you want to exit the app?';
   static const String sureLogOut = 'Are you sure you want to log out?';
   static const String clearImage = 'Clear Image';
+  static const String iHaveAgreeToOur = "I have agree to our ";
+  static const String termsAndCondition = "Terms and Condition";
   static const String scanImage = 'Scan Image';
   static const String userName = 'User Name';
   static const String login = 'LOG IN';

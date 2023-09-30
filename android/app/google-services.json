@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "812359554590",
+    "project_id": "note-e9486",
+    "storage_bucket": "note-e9486.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:812359554590:android:9fc0be17de835d01b8400f",
+        "android_client_info": {
+          "package_name": "com.example.fb_note"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAexiWdK4E7y-Vru7nVBQB421RPVvFvjKY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
