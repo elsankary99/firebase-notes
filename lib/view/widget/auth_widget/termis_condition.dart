@@ -11,19 +11,20 @@ class TermsAndConditionWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
         const CustomCheckBox(),
         Text(
           AppStrings.iHaveAgreeToOur,
           textAlign: TextAlign.center,
-          style: AppTextStyle.lato400Style14,
+          style: AppTextStyle.lato400Style12,
         ),
         InkWell(
           onTap: () {},
           child: Text(
             AppStrings.termsAndCondition,
             textAlign: TextAlign.center,
-            style: AppTextStyle.lato400Style14.copyWith(
+            style: AppTextStyle.lato400Style12.copyWith(
               decoration: TextDecoration.underline,
             ),
           ),

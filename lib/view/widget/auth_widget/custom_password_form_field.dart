@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CustomPasswordFormField extends StatefulWidget {
+  final void Function(String)? onChanged;
   const CustomPasswordFormField({
     super.key,
+    this.onChanged,
   });
 
   @override
@@ -18,6 +20,13 @@ class _CustomPasswordFormFieldState extends State<CustomPasswordFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onChanged: widget.onChanged,
+      validator: (value) {
+        if (value!.trim().isEmpty) {
+          return "This felid is required";
+        }
+        return null;
+      },
       obscureText: hide,
       cursorColor: AppColors.orange,
       decoration: InputDecoration(

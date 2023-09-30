@@ -1,27 +1,22 @@
+import 'package:fb_note/provider/auth/sidnup_provider/signup_provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fb_note/core/constant/app-colors.dart';
 import 'package:flutter/material.dart';
 
-class CustomCheckBox extends StatefulWidget {
-  const CustomCheckBox({
-    super.key,
-  });
+class CustomCheckBox extends ConsumerWidget {
+  const CustomCheckBox({super.key});
 
   @override
-  State<CustomCheckBox> createState() => _CustomCheckBoxState();
-}
-
-class _CustomCheckBoxState extends State<CustomCheckBox> {
-  bool isActive = false;
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final provider = ref.read(signUpProvider.notifier);
+    ref.watch(signUpProvider);
     return Checkbox(
-        value: isActive,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
-        activeColor: AppColors.orange,
-        onChanged: (value) {
-          setState(() {
-            isActive = value!;
-          });
-        });
+      value: provider.isSelected,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+      activeColor: AppColors.orange,
+      onChanged: (value) {
+        provider.checkBoxChanged(value!);
+      },
+    );
   }
 }
