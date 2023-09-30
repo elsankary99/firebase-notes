@@ -36,6 +36,7 @@ dependencies:
   flutter_riverpod: ^2.4.0
   flutter_screenutil: ^5.9.0
   font_awesome_flutter: ^10.5.0
+  image_picker: ^1.0.4
 
 dev_dependencies:
   auto_route_generator: ^7.3.1

@@ -1,5 +1,6 @@
 import 'package:fb_note/core/constant/app_strings.dart';
 import 'package:fb_note/core/extension/media_query.dart';
+import 'package:fb_note/core/widget/custom_dialog.dart';
 import 'package:fb_note/core/widget/custom_orange_buton.dart';
 import 'package:fb_note/view/widget/home_widget/custom_appbar.dart';
 import 'package:fb_note/view/widget/home_widget/user_information.dart';
@@ -25,7 +26,15 @@ class UserScreen extends ConsumerWidget {
         SliverToBoxAdapter(
             child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 50),
-          child: CustomOrangeButton(text: AppStrings.log_out, onPressed: () {}),
+          child: CustomOrangeButton(
+              text: AppStrings.log_out,
+              onPressed: () {
+                showMyDialog(context,
+                    onPressed: () {},
+                    header: AppStrings.log_out,
+                    btnTitle: AppStrings.log_out,
+                    title: AppStrings.sureLogOut);
+              }),
         ))
       ],
     );
