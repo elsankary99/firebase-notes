@@ -23,6 +23,8 @@ class AppStrings {
   static const String alreadyHaveAccount = 'Already have an account ?  ';
   static const String pleaseLoginWithEmail = 'Please Login With Your Email';
   static const String emailAddress = 'Email Address';
+  static const String clearImage = 'Clear Image';
+  static const String scanImage = 'Scan Image';
   static const String userName = 'User Name';
   static const String login = 'LOG IN';
   static const String signUP = 'Sign UP';
