@@ -4,6 +4,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:fb_note/core/constant/app_strings.dart';
 import 'package:fb_note/core/extension/media_query.dart';
 import 'package:fb_note/core/router/app_router.dart';
+import 'package:fb_note/core/widget/custom_circle_indicator.dart';
 import 'package:fb_note/core/widget/custom_orange_buton.dart';
 import 'package:fb_note/core/widget/custom_toast.dart';
 import 'package:fb_note/provider/auth/sidnup_provider/signup_provider.dart';
@@ -21,7 +22,7 @@ class FormSignUpValidator extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final provider = ref.read(signUpProvider.notifier);
-    ref.watch(signUpProvider);
+    final state = ref.watch(signUpProvider);
     ref.listen(signUpProvider, (previous, currentState) {
       if (currentState is SignUpError) {
         log("+==================vv2=============+");
@@ -32,6 +33,7 @@ class FormSignUpValidator extends ConsumerWidget {
       }
       if (currentState is SignUpSuccess) {
         context.router.replace(const HomeRoute());
+        customToast(title: AppStrings.welcomeToOurApp);
       }
     });
     return Form(
@@ -71,7 +73,10 @@ class FormSignUpValidator extends ConsumerWidget {
                                 provider.signUp();
                               }
                             : null,
-                        text: AppStrings.signUP));
+                        text: AppStrings.signUP,
+                        child: state is SignUpLoading
+                            ? const CustomCircleIndicator()
+                            : null));
               },
             ),
           ],

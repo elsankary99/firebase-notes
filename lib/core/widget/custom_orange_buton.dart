@@ -5,6 +5,7 @@ import 'package:fb_note/core/extension/media_query.dart';
 import 'package:flutter/material.dart';
 
 class CustomOrangeButton extends StatelessWidget {
+  final Widget? child;
   final void Function()? onPressed;
   final String text;
 
@@ -12,6 +13,7 @@ class CustomOrangeButton extends StatelessWidget {
     super.key,
     this.onPressed,
     required this.text,
+    this.child,
   });
 
   @override
@@ -24,10 +26,11 @@ class CustomOrangeButton extends StatelessWidget {
             backgroundColor: AppColors.orange,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(100))),
-        child: Text(
-          text,
-          style: AppTextStyle.lato400Style14,
-        ),
+        child: child ??
+            Text(
+              text,
+              style: AppTextStyle.lato400Style14,
+            ),
       ),
     );
   }
