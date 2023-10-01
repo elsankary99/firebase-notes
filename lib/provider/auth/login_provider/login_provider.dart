@@ -1,7 +1,7 @@
 import 'dart:developer';
 
-import 'package:fb_note/core/router/app_router.dart';
 import 'package:fb_note/provider/auth/login_provider/login_state.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -13,10 +13,27 @@ class LoginProvider extends StateNotifier<LoginState> {
   String? email;
   String? password;
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  login() {
+
+  login() async {
     if (formKey.currentState!.validate()) {
-      log("========================");
-      router.replace(const HomeRoute());
+      state = LoginLoading();
+      try {
+        log('======Loading===132===');
+
+        await FirebaseAuth.instance
+            .signInWithEmailAndPassword(email: email!, password: password!);
+        state = LoginSuccess();
+        log('======Success======');
+      } on FirebaseAuthException catch (e) {
+        if (e.code == 'user-not-found') {
+          state = const LoginError("No user found for that email.");
+          log('No user found for that email.');
+        } else if (e.code == 'wrong-password') {
+          state = const LoginError("Wrong password provided for that user.");
+
+          log('Wrong password provided for that user.');
+        }
+      }
     }
   }
 }

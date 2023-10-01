@@ -1,3 +1,5 @@
+// ignore: constant_identifier_names
+
 class AppStrings {
   // App name
   static const String appName = 'HaBIT Note';
@@ -13,7 +15,8 @@ class AppStrings {
   // Texts
   static const String createAccount = 'CREATE ACCOUNT';
   static const String tapToView = 'Tap to view';
-  static const String welcomeToOurApp = 'Welcome to our app';
+  static const String welcomeToOurApp = 'Welcome to our app 🤍';
+  static const String welcomeLBack = 'Welcome Back 🤍';
   static const String notes = 'Notes';
   static const String pleaseEnterYourAccount =
       ' Please enter your account’s email address \n and we will send you a link \n to reset your password.   ';
