@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-customToast({required String title, Color? backgroundColor}) {
+customToast({required String title, Color? color}) {
   Fluttertoast.showToast(
       msg: title,
-      toastLength: Toast.LENGTH_LONG,
-      gravity: ToastGravity.SNACKBAR,
+      toastLength: Toast.LENGTH_SHORT,
+      gravity: ToastGravity.BOTTOM,
       timeInSecForIosWeb: 1,
-      backgroundColor: backgroundColor ?? Colors.orange,
+      backgroundColor: color ?? Colors.orange,
       textColor: Colors.white,
       fontSize: 18);
 }

@@ -1,11 +1,17 @@
+import 'dart:developer';
+
+import 'package:auto_route/auto_route.dart';
 import 'package:fb_note/core/constant/app_strings.dart';
 import 'package:fb_note/core/extension/media_query.dart';
+import 'package:fb_note/core/router/app_router.dart';
 import 'package:fb_note/core/widget/custom_orange_buton.dart';
+import 'package:fb_note/core/widget/custom_toast.dart';
 import 'package:fb_note/provider/auth/sidnup_provider/signup_provider.dart';
+import 'package:fb_note/provider/auth/sidnup_provider/signup_state.dart';
 import 'package:fb_note/view/widget/auth_widget/custom_password_form_field.dart';
 import 'package:fb_note/view/widget/auth_widget/custom_text_form_field.dart';
 import 'package:fb_note/view/widget/auth_widget/termis_condition.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -15,6 +21,19 @@ class FormSignUpValidator extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final provider = ref.read(signUpProvider.notifier);
+    ref.watch(signUpProvider);
+    ref.listen(signUpProvider, (previous, currentState) {
+      if (currentState is SignUpError) {
+        log("+==================vv2=============+");
+        customToast(
+          title: currentState.message,
+          color: Colors.red,
+        );
+      }
+      if (currentState is SignUpSuccess) {
+        context.router.replace(const HomeRoute());
+      }
+    });
     return Form(
         key: provider.formKey,
         child: Column(

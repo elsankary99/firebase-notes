@@ -6,7 +6,7 @@ class SignUpInitial extends SignUpState {}
 
 class SignUpLoading extends SignUpState {}
 
-class SignUpDataFetched extends SignUpState {}
+class SignUpSuccess extends SignUpState {}
 
 class TermsAndConditionState extends SignUpState {}
 
