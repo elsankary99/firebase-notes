@@ -20,7 +20,8 @@ class _SplashPageState extends State<SplashPage> {
     Future.delayed(
       const Duration(seconds: 3),
       () {
-        if (FirebaseAuth.instance.currentUser != null) {
+        if (FirebaseAuth.instance.currentUser != null &&
+            FirebaseAuth.instance.currentUser!.emailVerified) {
           return context.router.replace(const HomeRoute());
         }
         return context.router.replace(const OnBoardingRoute());

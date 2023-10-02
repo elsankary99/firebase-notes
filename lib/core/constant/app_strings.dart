@@ -14,10 +14,16 @@ class AppStrings {
 
   // Texts
   static const String createAccount = 'CREATE ACCOUNT';
+  static const String verifyYourEmailAddress = 'Verify your email address';
+  static const String verifyYourEmailAddress3 =
+      'If not auto redirected after verification, click\n on the Continue button.';
+  static const String verifyYourEmailAddress2 =
+      'We have just send email verification link on\n your email. Please check email and click on\n that link to verify your Email address.';
   static const String tapToView = 'Tap to view';
   static const String welcomeToOurApp = 'Welcome to our app 🤍';
   static const String welcomeLBack = 'Welcome Back 🤍';
   static const String notes = 'Notes';
+  static const String kContinue = 'Continue';
   static const String pleaseEnterYourAccount =
       ' Please enter your account’s email address \n and we will send you a link \n to reset your password.   ';
   static const String enterYourDetails = 'Enter your details to continue';

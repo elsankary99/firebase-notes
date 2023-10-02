@@ -5,6 +5,7 @@ import 'package:fb_note/view/Home/pages/add_note_page.dart';
 import 'package:fb_note/view/auth/forget_password_page.dart';
 import 'package:fb_note/view/auth/login_page.dart';
 import 'package:fb_note/view/auth/signup_page.dart';
+import 'package:fb_note/view/auth/verifiy_email_page.dart';
 import 'package:fb_note/view/onboarding/onboarding_page.dart';
 import 'package:fb_note/view/splash/splash_page.dart';
 
@@ -23,6 +24,7 @@ class AppRouter extends _$AppRouter {
         //? auth
         AutoRoute(page: LoginRoute.page),
         AutoRoute(page: SignUpRoute.page),
+        AutoRoute(page: VerifyEmailRoute.page),
         AutoRoute(page: ForgetPasswordRoute.page),
         //? Home
         AutoRoute(page: HomeRoute.page),

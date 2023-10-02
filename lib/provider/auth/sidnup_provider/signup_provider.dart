@@ -5,8 +5,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final signUpProvider = StateNotifierProvider<SignUpProvider, SignUpState>(
-    (ref) => SignUpProvider());
+final signUpProvider =
+    StateNotifierProvider.autoDispose<SignUpProvider, SignUpState>(
+        (ref) => SignUpProvider());
 
 class SignUpProvider extends StateNotifier<SignUpState> {
   SignUpProvider() : super(SignUpInitial());
@@ -25,6 +26,7 @@ class SignUpProvider extends StateNotifier<SignUpState> {
           email: email!,
           password: password!,
         );
+        await FirebaseAuth.instance.currentUser!.sendEmailVerification();
         state = SignUpSuccess();
         log("+===============$SignUpSuccess================+");
       } on FirebaseAuthException catch (e) {

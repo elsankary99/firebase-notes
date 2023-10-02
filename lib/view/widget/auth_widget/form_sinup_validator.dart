@@ -12,6 +12,7 @@ import 'package:fb_note/provider/auth/sidnup_provider/signup_state.dart';
 import 'package:fb_note/view/widget/auth_widget/custom_password_form_field.dart';
 import 'package:fb_note/view/widget/auth_widget/custom_text_form_field.dart';
 import 'package:fb_note/view/widget/auth_widget/termis_condition.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -32,8 +33,13 @@ class FormSignUpValidator extends ConsumerWidget {
         );
       }
       if (currentState is SignUpSuccess) {
-        context.router.replace(const HomeRoute());
-        customToast(title: AppStrings.welcomeToOurApp);
+        if (FirebaseAuth.instance.currentUser!.emailVerified) {
+          context.router.replace(const HomeRoute());
+          customToast(title: AppStrings.welcomeToOurApp);
+        } else {
+          context.router.replace(const VerifyEmailRoute());
+          customToast(title: "We sent a verification message to your email");
+        }
       }
     });
     return Form(

@@ -6,7 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final loginProvider =
-    StateNotifierProvider<LoginProvider, LoginState>((ref) => LoginProvider());
+    StateNotifierProvider.autoDispose<LoginProvider, LoginState>(
+        (ref) => LoginProvider());
 
 class LoginProvider extends StateNotifier<LoginState> {
   LoginProvider() : super(LoginInitial());
@@ -16,10 +17,9 @@ class LoginProvider extends StateNotifier<LoginState> {
 
   login() async {
     if (formKey.currentState!.validate()) {
-      state = LoginLoading();
       try {
         log('======Loading===132===');
-
+        state = LoginLoading();
         await FirebaseAuth.instance
             .signInWithEmailAndPassword(email: email!, password: password!);
         state = LoginSuccess();
