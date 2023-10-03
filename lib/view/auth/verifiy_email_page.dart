@@ -51,9 +51,12 @@ class VerifyEmailPage extends ConsumerWidget {
               height: context.height * 0.055,
               width: context.width * 0.4,
               child: ElevatedButton(
-                onPressed: () {
+                onPressed: () async {
+                  await FirebaseAuth.instance.currentUser!.reload();
                   if (FirebaseAuth.instance.currentUser!.emailVerified) {
-                    context.router.replace(const HomeRoute());
+                    router.replace(const HomeRoute());
+
+                    customToast(title: AppStrings.welcomeToOurApp);
                   } else {
                     customToast(
                         title: "You Must Verify your Email First",

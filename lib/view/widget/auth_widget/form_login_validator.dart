@@ -12,6 +12,7 @@ import 'package:fb_note/provider/auth/login_provider/login_state.dart';
 import 'package:fb_note/view/widget/auth_widget/custom_password_form_field.dart';
 import 'package:fb_note/view/widget/auth_widget/custom_text_form_field.dart';
 import 'package:fb_note/view/widget/auth_widget/forget_password_text.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -24,7 +25,7 @@ class FormLoginValidator extends ConsumerWidget {
     final provider = ref.read(loginProvider.notifier);
     final state = ref.watch(loginProvider);
 
-    ref.listen(loginProvider, (previous, currentState) {
+    ref.listen(loginProvider, (previous, currentState) async {
       if (currentState is LoginError) {
         log("+==================v500=============+");
 
@@ -34,8 +35,19 @@ class FormLoginValidator extends ConsumerWidget {
         );
       }
       if (currentState is LoginSuccess) {
-        context.router.replace(const HomeRoute());
-        customToast(title: AppStrings.welcomeLBack);
+        if (FirebaseAuth.instance.currentUser!.emailVerified) {
+          context.router.replace(const HomeRoute());
+          customToast(title: AppStrings.welcomeLBack);
+        } else {
+          context.router.replace(const VerifyEmailRoute());
+          try {
+            await FirebaseAuth.instance.currentUser!.sendEmailVerification();
+          } on Exception catch (e) {
+            log("=====${e.toString()}====");
+          }
+          log("=====Send====");
+          customToast(title: "We sent a verification message to your email");
+        }
       }
     });
     return Form(
