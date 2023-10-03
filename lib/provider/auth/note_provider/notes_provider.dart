@@ -35,6 +35,15 @@ class NotesProvider extends StateNotifier<NotesState> {
     // .then((value) => log("User Added"))
     // .catchError((error) => );
   }
+
+  Future<void> deleteNote({required String path}) async {
+    try {
+      await notes.doc(path).delete();
+      log("======Delete Successfully======");
+    } catch (e) {
+      log(e.toString());
+    }
+  }
 }
 
 final getNotesProvider =

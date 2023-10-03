@@ -45,6 +45,16 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const LoginPage(),
       );
     },
+    NoteDetailsRoute.name: (routeData) {
+      final args = routeData.argsAs<NoteDetailsRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: NoteDetailsPage(
+          data: args.data,
+          key: args.key,
+        ),
+      );
+    },
     OnBoardingRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -140,6 +150,44 @@ class LoginRoute extends PageRouteInfo<void> {
   static const String name = 'LoginRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [NoteDetailsPage]
+class NoteDetailsRoute extends PageRouteInfo<NoteDetailsRouteArgs> {
+  NoteDetailsRoute({
+    required QueryDocumentSnapshot<Map<String, dynamic>> data,
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
+          NoteDetailsRoute.name,
+          args: NoteDetailsRouteArgs(
+            data: data,
+            key: key,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'NoteDetailsRoute';
+
+  static const PageInfo<NoteDetailsRouteArgs> page =
+      PageInfo<NoteDetailsRouteArgs>(name);
+}
+
+class NoteDetailsRouteArgs {
+  const NoteDetailsRouteArgs({
+    required this.data,
+    this.key,
+  });
+
+  final QueryDocumentSnapshot<Map<String, dynamic>> data;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'NoteDetailsRouteArgs{data: $data, key: $key}';
+  }
 }
 
 /// generated route for

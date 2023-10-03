@@ -27,6 +27,7 @@ class AddNoteFelids extends ConsumerWidget {
                 onChanged: (title) {
                   provider.title = title.trim();
                 },
+                maxLength: 30,
                 style: AppTextStyle.lato500Style34,
                 decoration: const InputDecoration(
                     border: InputBorder.none, hintText: "Title")),

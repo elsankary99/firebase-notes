@@ -11,22 +11,20 @@ class CreateYourFirstNoteWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: context.height * 0.4,
-      child: Column(
-        children: [
-          Image.asset(
-            height: context.height * 0.3,
-            Assets.assetsImagesEmptyNote,
-            fit: BoxFit.fill,
-          ),
-          SizedBox(height: context.height * 0.03),
-          Text(
-            AppStrings.home_empty_note,
-            style: AppTextStyle.lato300Style18,
-          )
-        ],
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Image.asset(
+          height: context.height * 0.3,
+          Assets.assetsImagesEmptyNote,
+          fit: BoxFit.fill,
+        ),
+        SizedBox(height: context.height * 0.03),
+        Text(
+          AppStrings.home_empty_note,
+          style: AppTextStyle.lato300Style18,
+        )
+      ],
     );
   }
 }
