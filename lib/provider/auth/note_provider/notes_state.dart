@@ -6,11 +6,12 @@ abstract class NotesState {
 
 class NotesInitial extends NotesState {}
 
-class NotesLoading extends NotesState {}
+//? Add note
+class AddNoteLoading extends NotesState {}
 
-class NotesDataFetched extends NotesState {}
+class AddNoteSuccess extends NotesState {}
 
-class NotesError extends NotesState {
+class AddNoteError extends NotesState {
   final String message;
-  const NotesError(this.message);
+  const AddNoteError(this.message);
 }

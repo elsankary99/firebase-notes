@@ -1,6 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:fb_note/core/constant/app-colors.dart';
+import 'package:fb_note/core/router/app_router.dart';
 import 'package:fb_note/core/widget/custom_toast.dart';
+import 'package:fb_note/provider/auth/note_provider/notes_provider.dart';
 import 'package:fb_note/view/widget/home_widget/add_note_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -13,8 +15,11 @@ class AddNotePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final provider = ref.read(notesProvider.notifier);
+
     return Scaffold(
       body: CustomScrollView(
+        physics: const BouncingScrollPhysics(),
         slivers: [
           SliverAppBar(
             backgroundColor: Colors.transparent,
@@ -29,8 +34,11 @@ class AddNotePage extends ConsumerWidget {
                 )),
             actions: [
               IconButton(
-                  onPressed: () {
+                  onPressed: () async {
+                    await provider.addNotes();
+                    ref.invalidate(getNotesProvider);
                     customToast(title: "Note Added Successfully");
+                    router.pop();
                   },
                   icon: Icon(
                     FontAwesomeIcons.floppyDisk,
