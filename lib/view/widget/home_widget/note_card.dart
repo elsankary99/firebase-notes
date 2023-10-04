@@ -1,13 +1,13 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fb_note/core/constant/app-colors.dart';
 import 'package:fb_note/core/constant/app_text_style.dart';
 import 'package:fb_note/core/extension/media_query.dart';
 import 'package:fb_note/core/router/app_router.dart';
+import 'package:fb_note/data/model/notes_model.dart';
 import 'package:flutter/material.dart';
 
 class NoteCard extends StatelessWidget {
-  final QueryDocumentSnapshot<Map<String, dynamic>> data;
+  final NotesModel data;
   const NoteCard({super.key, required this.data});
 
   @override
@@ -23,14 +23,14 @@ class NoteCard extends StatelessWidget {
         decoration: BoxDecoration(
             color: AppColors.orange, borderRadius: BorderRadius.circular(15)),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Text(data["title"],
+          Text(data.title!,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: AppTextStyle.lato500Style24),
           SizedBox(height: context.height * 0.01),
           Expanded(
             child: Text(
-              data["sub_title"],
+              data.subTitle!,
               maxLines: 3,
               overflow: TextOverflow.ellipsis,
               style: AppTextStyle.lato400Style18,

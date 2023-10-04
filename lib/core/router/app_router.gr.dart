@@ -156,7 +156,7 @@ class LoginRoute extends PageRouteInfo<void> {
 /// [NoteDetailsPage]
 class NoteDetailsRoute extends PageRouteInfo<NoteDetailsRouteArgs> {
   NoteDetailsRoute({
-    required QueryDocumentSnapshot<Map<String, dynamic>> data,
+    required NotesModel data,
     Key? key,
     List<PageRouteInfo>? children,
   }) : super(
@@ -180,7 +180,7 @@ class NoteDetailsRouteArgs {
     this.key,
   });
 
-  final QueryDocumentSnapshot<Map<String, dynamic>> data;
+  final NotesModel data;
 
   final Key? key;
 
