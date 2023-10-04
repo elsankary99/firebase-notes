@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:fb_note/core/constant/app-colors.dart';
 import 'package:fb_note/core/constant/app_text_style.dart';
 import 'package:fb_note/core/extension/media_query.dart';
 import 'package:fb_note/core/router/app_router.dart';
@@ -21,7 +20,8 @@ class NoteCard extends StatelessWidget {
         padding: const EdgeInsets.all(10),
         margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 6),
         decoration: BoxDecoration(
-            color: AppColors.orange, borderRadius: BorderRadius.circular(15)),
+            color: Color(data.color!.toInt()),
+            borderRadius: BorderRadius.circular(15)),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Text(data.title!,
               maxLines: 1,

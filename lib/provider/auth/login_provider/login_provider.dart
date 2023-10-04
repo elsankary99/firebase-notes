@@ -32,6 +32,9 @@ class LoginProvider extends StateNotifier<LoginState> {
           state = const LoginError("Wrong password provided for that user.");
 
           log('Wrong password provided for that user.');
+        } else {
+          state = const LoginError(
+              "Some thing went Wrong with your email or password.");
         }
       }
     }

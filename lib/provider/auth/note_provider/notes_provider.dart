@@ -15,50 +15,57 @@ class NotesProvider extends StateNotifier<NotesState> {
   NotesProvider() : super(NotesInitial());
   String? title;
   String? subTitle;
+  int? color;
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final notes = FirebaseFirestore.instance.collection('notes');
+  //!Add note
   Future<void> addNotes() async {
-    state = AddNoteLoading();
-    log("AddNoteLoading");
+    if (formKey.currentState!.validate()) {
+      state = AddNoteLoading();
+      log("AddNoteLoading");
 
-    try {
-      await notes.add({
-        "user_id": FirebaseAuth.instance.currentUser!.uid,
-        "title": title, // John Doe
-        "sub_title": subTitle, // Stokes and Sons
-        "color": Colors.red.value
-      });
-      state = AddNoteSuccess();
+      try {
+        await notes.add({
+          "user_id": FirebaseAuth.instance.currentUser!.uid,
+          "title": title, // John Doe
+          "sub_title": subTitle, // Stokes and Sons
+          "color": color,
+        });
+        state = AddNoteSuccess();
 
-      log("User Added Successfully");
-    } catch (e) {
-      state = AddNoteError(e.toString());
+        log("User Added Successfully");
+      } catch (e) {
+        state = AddNoteError(e.toString());
 
-      log("Failed to add user: $e");
+        log("Failed to add user: $e");
+      }
     }
   }
 
-  //   Future<void> editNotes() async {
-  //   state = AddNoteLoading();
-  //   log("AddNoteLoading");
+  //!Edit note
+  Future<void> editNotes(NotesModel note) async {
+    if (formKey.currentState!.validate()) {
+      state = EditNoteLoading();
+      log("AddNoteLoading");
 
-  //   try {
-  //     await notes.where("id",isEqualTo: "1").({
-  //       "user_id": FirebaseAuth.instance.currentUser!.uid,
-  //       "title": title, // John Doe
-  //       "sub_title": subTitle, // Stokes and Sons
-  //       "color": Colors.red.value
-  //     });
-  //     state = AddNoteSuccess();
+      try {
+        await notes.doc().update({
+          "title": note.title,
+          "sub_title": note.color,
+          "color": note.color,
+        });
+        state = EditNoteSuccess();
 
-  //     log("User Added Successfully");
-  //   } catch (e) {
-  //     state = AddNoteError(e.toString());
+        log("Note edit Successfully");
+      } catch (e) {
+        state = EditNoteError(e.toString());
 
-  //     log("Failed to add user: $e");
-  //   }
-  // }
+        log("Failed to edit user: $e");
+      }
+    }
+  }
 
+  //!Delete note
   Future<void> deleteNote({required String path}) async {
     try {
       await notes.doc(path).delete();
@@ -69,6 +76,7 @@ class NotesProvider extends StateNotifier<NotesState> {
   }
 }
 
+//!Get note
 final getNotesProvider = FutureProvider<List<NotesModel>>((ref) async {
   final notes = await FirebaseFirestore.instance
       .collection('notes')

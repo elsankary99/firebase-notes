@@ -15,3 +15,13 @@ class AddNoteError extends NotesState {
   final String message;
   const AddNoteError(this.message);
 }
+
+//? Edit note
+class EditNoteLoading extends NotesState {}
+
+class EditNoteSuccess extends NotesState {}
+
+class EditNoteError extends NotesState {
+  final String message;
+  const EditNoteError(this.message);
+}
