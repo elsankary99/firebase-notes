@@ -22,9 +22,14 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     AddNoteRoute.name: (routeData) {
+      final args = routeData.argsAs<AddNoteRouteArgs>(
+          orElse: () => const AddNoteRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const AddNotePage(),
+        child: AddNotePage(
+          subtitle: args.subtitle,
+          key: args.key,
+        ),
       );
     },
     ForgetPasswordRoute.name: (routeData) {
@@ -98,16 +103,40 @@ class AboutRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [AddNotePage]
-class AddNoteRoute extends PageRouteInfo<void> {
-  const AddNoteRoute({List<PageRouteInfo>? children})
-      : super(
+class AddNoteRoute extends PageRouteInfo<AddNoteRouteArgs> {
+  AddNoteRoute({
+    String? subtitle,
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
           AddNoteRoute.name,
+          args: AddNoteRouteArgs(
+            subtitle: subtitle,
+            key: key,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'AddNoteRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<AddNoteRouteArgs> page =
+      PageInfo<AddNoteRouteArgs>(name);
+}
+
+class AddNoteRouteArgs {
+  const AddNoteRouteArgs({
+    this.subtitle,
+    this.key,
+  });
+
+  final String? subtitle;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'AddNoteRouteArgs{subtitle: $subtitle, key: $key}';
+  }
 }
 
 /// generated route for

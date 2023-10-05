@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:fb_note/core/constant/app-colors.dart';
 import 'package:fb_note/core/widget/custom_circle_indicator.dart';
@@ -12,10 +14,12 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 @RoutePage()
 class AddNotePage extends ConsumerWidget {
-  const AddNotePage({super.key});
+  final String? subtitle;
+  const AddNotePage({this.subtitle, super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    log("$subtitle");
     final provider = ref.read(notesProvider.notifier);
     final state = ref.watch(notesProvider);
     ref.listen(
@@ -59,7 +63,7 @@ class AddNotePage extends ConsumerWidget {
                   ],
                 ),
                 const SliverToBoxAdapter(child: PickNoteColor()),
-                const SliverToBoxAdapter(child: AddNoteFelids()),
+                SliverToBoxAdapter(child: AddNoteFelids(subtitle: subtitle)),
               ],
             ),
     );

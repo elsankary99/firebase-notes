@@ -21,6 +21,7 @@ class NotesProvider extends StateNotifier<NotesState> {
   //!Add note
   Future<void> addNotes() async {
     if (formKey.currentState!.validate()) {
+      formKey.currentState!.save();
       state = AddNoteLoading();
       log("AddNoteLoading");
 

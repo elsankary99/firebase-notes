@@ -4,9 +4,8 @@ import 'package:fb_note/core/constant/app_text_style.dart';
 import 'package:flutter/material.dart';
 
 class AddNoteFelids extends ConsumerWidget {
-  const AddNoteFelids({
-    super.key,
-  });
+  final String? subtitle;
+  const AddNoteFelids({this.subtitle, super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -24,8 +23,8 @@ class AddNoteFelids extends ConsumerWidget {
                   }
                   return null;
                 },
-                onChanged: (title) {
-                  provider.title = title.trim();
+                onSaved: (title) {
+                  provider.title = title!.trim();
                 },
                 maxLength: 30,
                 style: AppTextStyle.lato500Style34,
@@ -38,8 +37,11 @@ class AddNoteFelids extends ConsumerWidget {
                   }
                   return null;
                 },
-                onChanged: (subTitle) {
-                  provider.subTitle = subTitle.trim();
+                controller: subtitle != null
+                    ? TextEditingController(text: subtitle)
+                    : null,
+                onSaved: (subTitle) {
+                  provider.subTitle = subTitle!.trim();
                 },
                 style: AppTextStyle.lato500Style24,
                 maxLines: null,

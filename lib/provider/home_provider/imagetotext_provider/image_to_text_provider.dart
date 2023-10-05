@@ -22,8 +22,10 @@ class ImageToTextProvider extends StateNotifier<ImageToTextState> {
     try {
       final imagePath = await ImagePicker().pickImage(source: source);
       if (imagePath == null) return;
-
       image = File(imagePath.path);
+      if (image != null) {
+        await imageToText(image!);
+      }
       state = PickImageSuccess();
     } catch (e) {
       state = PickImageError(e.toString());
@@ -40,8 +42,8 @@ class ImageToTextProvider extends StateNotifier<ImageToTextState> {
       final RecognizedText recognizedText =
           await textRecognizer.processImage(inputImage);
 
-      log("==path===$title=====");
       title = recognizedText.text;
+      log("==path===$title=====");
       state = ImageToTextSuccess();
     } catch (e) {
       state = ImageToTextError(e.toString());

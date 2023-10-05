@@ -58,7 +58,7 @@ class NoteScreen extends ConsumerWidget {
           right: context.width * 0.05,
           child: FloatingActionButton(
             onPressed: () {
-              context.router.push(const AddNoteRoute());
+              context.router.push(AddNoteRoute());
             },
             backgroundColor: AppColors.orange,
             child: const Icon(Icons.add),
