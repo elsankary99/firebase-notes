@@ -49,4 +49,17 @@ class ImageToTextProvider extends StateNotifier<ImageToTextState> {
       state = ImageToTextError(e.toString());
     }
   }
+
+  void deleteImage() {
+    state = DeleteImageLoading();
+    try {
+      if (image != null) {
+        image = null;
+        title = "";
+      }
+      state = DeleteImageSuccess();
+    } catch (e) {
+      state = DeleteImageError(e.toString());
+    }
+  }
 }

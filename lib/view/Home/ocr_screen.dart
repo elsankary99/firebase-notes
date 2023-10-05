@@ -110,7 +110,9 @@ class _OCRScreenState extends ConsumerState<OCRScreen> {
                     height: context.height * 0.05,
                     child: Row(
                       children: [
-                        ClearImageButton(onPressed: () {}),
+                        ClearImageButton(onPressed: () {
+                          provider.deleteImage();
+                        }),
                         SizedBox(width: context.width * 0.05),
                         CustomOrangeButton(
                           text: "Save as Note",

@@ -25,3 +25,13 @@ class ImageToTextError extends ImageToTextState {
   final String message;
   const ImageToTextError(this.message);
 }
+
+//? Delete Image
+class DeleteImageLoading extends ImageToTextState {}
+
+class DeleteImageSuccess extends ImageToTextState {}
+
+class DeleteImageError extends ImageToTextState {
+  final String message;
+  const DeleteImageError(this.message);
+}
