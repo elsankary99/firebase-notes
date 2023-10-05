@@ -14,6 +14,7 @@ class AppStrings {
 
   // Texts
   static const String createAccount = 'CREATE ACCOUNT';
+  static const String deleteAccount = 'Delete Account';
   static const String verifyYourEmailAddress = 'Verify your email address';
   static const String verifyYourEmailAddress3 =
       'If not auto redirected after verification, click\n on the Continue button.';

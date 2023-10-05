@@ -8,7 +8,7 @@ import 'package:image_picker/image_picker.dart';
 part 'image_to_text_state.dart';
 
 final imageToTextProvider =
-    StateNotifierProvider<ImageToTextProvider, ImageToTextState>(
+    StateNotifierProvider.autoDispose<ImageToTextProvider, ImageToTextState>(
         (ref) => ImageToTextProvider());
 
 class ImageToTextProvider extends StateNotifier<ImageToTextState> {

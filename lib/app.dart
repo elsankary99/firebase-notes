@@ -16,6 +16,8 @@ class MyApp extends StatelessWidget {
         builder: (_, child) {
           return MaterialApp.router(
             theme: ThemeData(
+              appBarTheme: const AppBarTheme(
+                  iconTheme: IconThemeData(color: AppColors.orange)),
               scaffoldBackgroundColor: AppColors.lightGrey,
             ),
             debugShowCheckedModeBanner: false,

@@ -32,6 +32,12 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    AllNotesRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ResetPasswordPage(),
+      );
+    },
     ForgetPasswordRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -42,6 +48,12 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const HomePage(),
+      );
+    },
+    ImageToTextRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const DeleteAccountPage(),
       );
     },
     LoginRoute.name: (routeData) {
@@ -140,6 +152,20 @@ class AddNoteRouteArgs {
 }
 
 /// generated route for
+/// [ResetPasswordPage]
+class AllNotesRoute extends PageRouteInfo<void> {
+  const AllNotesRoute({List<PageRouteInfo>? children})
+      : super(
+          AllNotesRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'AllNotesRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
 /// [ForgetPasswordPage]
 class ForgetPasswordRoute extends PageRouteInfo<void> {
   const ForgetPasswordRoute({List<PageRouteInfo>? children})
@@ -163,6 +189,20 @@ class HomeRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'HomeRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [DeleteAccountPage]
+class ImageToTextRoute extends PageRouteInfo<void> {
+  const ImageToTextRoute({List<PageRouteInfo>? children})
+      : super(
+          ImageToTextRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ImageToTextRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

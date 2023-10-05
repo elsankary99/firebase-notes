@@ -36,6 +36,7 @@ class _OCRScreenState extends ConsumerState<OCRScreen> {
     );
 
     return CustomScrollView(
+      physics: const BouncingScrollPhysics(),
       slivers: [
         SliverAppBar(
           backgroundColor: Colors.transparent,

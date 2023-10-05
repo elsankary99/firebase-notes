@@ -1,5 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:fb_note/data/model/notes_model.dart';
+import 'package:fb_note/view/Home/help/resetpassword_page.dart';
+import 'package:fb_note/view/Home/help/delete_account_page.dart';
 import 'package:fb_note/view/Home/home_page.dart';
 import 'package:fb_note/view/Home/pages/about_page.dart';
 import 'package:fb_note/view/Home/pages/add_note_page.dart';
@@ -33,6 +35,8 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: HomeRoute.page),
         AutoRoute(page: AddNoteRoute.page),
         AutoRoute(page: AboutRoute.page),
+        AutoRoute(page: ImageToTextRoute.page),
+        AutoRoute(page: AllNotesRoute.page),
         AutoRoute(page: NoteDetailsRoute.page),
       ];
 }

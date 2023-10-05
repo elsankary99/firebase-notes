@@ -1,7 +1,9 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:fb_note/core/constant/app-colors.dart';
 import 'package:fb_note/core/constant/app_strings.dart';
 import 'package:fb_note/core/constant/app_text_style.dart';
 import 'package:fb_note/core/extension/media_query.dart';
+import 'package:fb_note/core/router/app_router.dart';
 import 'package:fb_note/view/widget/home_widget/help_body_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -24,15 +26,11 @@ class HelpScreen extends ConsumerWidget {
         ),
         SliverToBoxAdapter(
             child: HelpBodyWidget(
-          title: AppStrings.notes,
-          icon: FontAwesomeIcons.clipboard,
-          onTap: () {},
-        )),
-        SliverToBoxAdapter(
-            child: HelpBodyWidget(
-          title: AppStrings.ocr,
-          icon: FontAwesomeIcons.fileImage,
-          onTap: () {},
+          title: AppStrings.deleteAccount,
+          icon: FontAwesomeIcons.trashCan,
+          onTap: () {
+            context.router.push(const ImageToTextRoute());
+          },
         )),
         SliverToBoxAdapter(
             child: HelpBodyWidget(

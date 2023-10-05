@@ -17,6 +17,7 @@ class UserScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return CustomScrollView(
+      physics: const BouncingScrollPhysics(),
       slivers: [
         customAppBar,
         const SliverToBoxAdapter(child: UserInformation()),
@@ -24,7 +25,7 @@ class UserScreen extends ConsumerWidget {
         const SliverToBoxAdapter(child: UserScreenSetting()),
         SliverToBoxAdapter(
             child: SizedBox(
-          height: context.height * 0.2,
+          height: context.height * 0.3,
         )),
         SliverToBoxAdapter(
             child: Padding(

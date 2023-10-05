@@ -46,7 +46,9 @@ class NoteScreen extends ConsumerWidget {
                   child: Text(error.toString()),
                 ),
                 loading: () => const Center(
-                  child: CircularProgressIndicator(),
+                  child: CircularProgressIndicator(
+                    color: AppColors.orange,
+                  ),
                 ),
               ),
             ),

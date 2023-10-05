@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:auto_route/auto_route.dart';
 import 'package:fb_note/core/constant/app-colors.dart';
 import 'package:fb_note/core/widget/custom_circle_indicator.dart';
@@ -19,7 +17,6 @@ class AddNotePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    log("$subtitle");
     final provider = ref.read(notesProvider.notifier);
     final state = ref.watch(notesProvider);
     ref.listen(

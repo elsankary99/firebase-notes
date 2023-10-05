@@ -24,11 +24,6 @@ class UserScreenSetting extends StatelessWidget {
         ),
       ),
       ListTile(
-        onTap: () {},
-        leading: const Icon(Icons.lock),
-        title: const Text(AppStrings.reset_pwd),
-      ),
-      ListTile(
         onTap: () => context.router.push(const AboutRoute()),
         leading: const Icon(FontAwesomeIcons.circleInfo),
         title: const Text(AppStrings.about),
