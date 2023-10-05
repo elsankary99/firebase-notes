@@ -64,26 +64,27 @@ class _PickNoteColorState extends ConsumerState<PickNoteColor> {
               : const SizedBox(),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Select color ...",
-                  style: AppTextStyle.lato400Style18,
-                ),
-                InkWell(
-                    onTap: () {
-                      setState(() {
-                        open = !open;
-                      });
-                    },
-                    child: Icon(
-                      open
-                          ? FontAwesomeIcons.chevronUp
-                          : FontAwesomeIcons.chevronDown,
-                      color: AppColors.orange,
-                    ))
-              ],
+            child: InkWell(
+              onTap: () {
+                setState(() {
+                  open = !open;
+                });
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Select color ...",
+                    style: AppTextStyle.lato400Style18,
+                  ),
+                  Icon(
+                    open
+                        ? FontAwesomeIcons.chevronUp
+                        : FontAwesomeIcons.chevronDown,
+                    color: AppColors.orange,
+                  )
+                ],
+              ),
             ),
           )
         ],

@@ -45,13 +45,15 @@ class NotesProvider extends StateNotifier<NotesState> {
   //!Edit note
   Future<void> editNotes(NotesModel note) async {
     if (formKey.currentState!.validate()) {
+      formKey.currentState!.save();
       state = EditNoteLoading();
       log("AddNoteLoading");
+      log("===id=${note.id}===");
 
       try {
-        await notes.doc().update({
+        await notes.doc(note.id).update({
           "title": note.title,
-          "sub_title": note.color,
+          "sub_title": note.subTitle,
           "color": note.color,
         });
         state = EditNoteSuccess();
@@ -67,10 +69,15 @@ class NotesProvider extends StateNotifier<NotesState> {
 
   //!Delete note
   Future<void> deleteNote({required String path}) async {
+    state = DeleteNoteLoading();
     try {
       await notes.doc(path).delete();
+      state = DeleteNoteSuccess();
+
       log("======Delete Successfully======");
     } catch (e) {
+      state = DeleteNoteError(e.toString());
+
       log(e.toString());
     }
   }

@@ -25,3 +25,13 @@ class EditNoteError extends NotesState {
   final String message;
   const EditNoteError(this.message);
 }
+
+//? Delete note
+class DeleteNoteLoading extends NotesState {}
+
+class DeleteNoteSuccess extends NotesState {}
+
+class DeleteNoteError extends NotesState {
+  final String message;
+  const DeleteNoteError(this.message);
+}
