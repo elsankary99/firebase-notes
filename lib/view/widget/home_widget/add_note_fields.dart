@@ -1,4 +1,4 @@
-import 'package:fb_note/provider/auth/note_provider/notes_provider.dart';
+import 'package:fb_note/provider/home_provider/note_provider/notes_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fb_note/core/constant/app_text_style.dart';
 import 'package:flutter/material.dart';

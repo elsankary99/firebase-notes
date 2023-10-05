@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:fb_note/core/constant/app-colors.dart';
 import 'package:fb_note/core/widget/custom_circle_indicator.dart';
 import 'package:fb_note/core/widget/custom_toast.dart';
-import 'package:fb_note/provider/auth/note_provider/notes_provider.dart';
+import 'package:fb_note/provider/home_provider/note_provider/notes_provider.dart';
 import 'package:fb_note/view/widget/home_widget/add_note_fields.dart';
 import 'package:fb_note/view/widget/home_widget/pick_note_color.dart';
 import 'package:flutter/material.dart';

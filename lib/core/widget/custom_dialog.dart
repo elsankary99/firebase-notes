@@ -64,3 +64,68 @@ Future<void> showMyDialog(BuildContext context,
     },
   );
 }
+
+Future<void> getImage(BuildContext context,
+    {required void Function()? galleryBtn,
+    required void Function()? cameraBtn}) async {
+  return showDialog<void>(
+    context: context,
+    barrierDismissible: false, // user must tap button!
+    builder: (BuildContext context) {
+      return AlertDialog(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(left: 10, right: 10, bottom: 8),
+            child: SizedBox(
+              height: context.height * 0.2,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  ElevatedButton(
+                      onPressed: galleryBtn,
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: AppColors.orange,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          )),
+                      child: Text(
+                        "Image From Gallery",
+                        style: AppTextStyle.lato700Style14
+                            .copyWith(color: Colors.white),
+                      )),
+                  ElevatedButton(
+                      onPressed: cameraBtn,
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: AppColors.orange,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          )),
+                      child: Text(
+                        "Image From Camera",
+                        style: AppTextStyle.lato700Style14
+                            .copyWith(color: Colors.white),
+                      )),
+                  ElevatedButton(
+                      onPressed: () {
+                        context.router.pop();
+                      },
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.white,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8),
+                              side: const BorderSide(color: Colors.grey))),
+                      child: Text(
+                        "Cancel",
+                        style: AppTextStyle.lato500Style14,
+                      )),
+                ],
+              ),
+            ),
+          ),
+        ],
+      );
+    },
+  );
+}

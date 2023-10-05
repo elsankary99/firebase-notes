@@ -5,7 +5,7 @@ import 'package:fb_note/core/constant/app-colors.dart';
 import 'package:fb_note/core/widget/custom_circle_indicator.dart';
 import 'package:fb_note/core/widget/custom_toast.dart';
 import 'package:fb_note/data/model/notes_model.dart';
-import 'package:fb_note/provider/auth/note_provider/notes_provider.dart';
+import 'package:fb_note/provider/home_provider/note_provider/notes_provider.dart';
 import 'package:fb_note/view/widget/home_widget/edit_note_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

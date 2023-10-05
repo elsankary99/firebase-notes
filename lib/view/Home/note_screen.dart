@@ -4,7 +4,7 @@ import 'package:fb_note/core/constant/app_strings.dart';
 import 'package:fb_note/core/constant/app_text_style.dart';
 import 'package:fb_note/core/extension/media_query.dart';
 import 'package:fb_note/core/router/app_router.dart';
-import 'package:fb_note/provider/auth/note_provider/notes_provider.dart';
+import 'package:fb_note/provider/home_provider/note_provider/notes_provider.dart';
 import 'package:fb_note/view/widget/home_widget/create_first_note.dart';
 import 'package:fb_note/view/widget/home_widget/note_card.dart';
 import 'package:flutter/material.dart';

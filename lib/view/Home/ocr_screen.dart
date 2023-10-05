@@ -5,6 +5,7 @@ import 'package:fb_note/core/constant/app-colors.dart';
 import 'package:fb_note/core/constant/app_strings.dart';
 import 'package:fb_note/core/constant/app_text_style.dart';
 import 'package:fb_note/core/extension/media_query.dart';
+import 'package:fb_note/core/widget/custom_dialog.dart';
 import 'package:fb_note/core/widget/custom_orange_buton.dart';
 import 'package:fb_note/view/widget/home_widget/clear_iamge_button.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +24,7 @@ class OCRScreen extends ConsumerStatefulWidget {
 class _OCRScreenState extends ConsumerState<OCRScreen> {
   File? _image;
   String title = "";
-  Future pickImage(ImageSource source) async {
+  Future<void> pickImage(ImageSource source) async {
     try {
       final image = await ImagePicker().pickImage(source: source);
       if (image == null) return;
@@ -36,7 +37,7 @@ class _OCRScreenState extends ConsumerState<OCRScreen> {
     }
   }
 
-  Future textRecognition(File image) async {
+  Future<void> textRecognition(File image) async {
     final textRecognizer = TextRecognizer(script: TextRecognitionScript.latin);
     final inputImage = InputImage.fromFilePath(image.path);
     final RecognizedText recognizedText =
@@ -68,20 +69,41 @@ class _OCRScreenState extends ConsumerState<OCRScreen> {
                   height: context.height * 0.3,
                   width: double.infinity,
                   decoration: BoxDecoration(
-                      color: AppColors.lightGrey,
+                      // color: AppColors.lightGrey,
                       image: _image != null
                           ? DecorationImage(
                               image: FileImage(_image!), fit: BoxFit.fill)
                           : null,
                       borderRadius: BorderRadius.circular(10),
                       border: Border.all(color: AppColors.orange, width: 2)),
-                  child: _image == null
-                      ? Icon(
-                          Icons.add_a_photo_outlined,
-                          size: 45.sp,
-                          color: AppColors.orange,
-                        )
-                      : null,
+                  child: InkWell(
+                    onTap: () {
+                      getImage(
+                        context,
+                        galleryBtn: () {
+                          pickImage(ImageSource.gallery).then((value) {
+                            if (_image != null) {
+                              textRecognition(_image!);
+                            }
+                          });
+                        },
+                        cameraBtn: () {
+                          pickImage(ImageSource.camera).then((value) {
+                            if (_image != null) {
+                              textRecognition(_image!);
+                            }
+                          });
+                        },
+                      );
+                    },
+                    child: _image == null
+                        ? Icon(
+                            Icons.add_a_photo_outlined,
+                            size: 45.sp,
+                            color: AppColors.orange,
+                          )
+                        : null,
+                  ),
                 ),
                 SizedBox(height: context.height * 0.02),
                 Container(
@@ -106,14 +128,7 @@ class _OCRScreenState extends ConsumerState<OCRScreen> {
                     height: context.height * 0.05,
                     child: Row(
                       children: [
-                        //! glary
-                        ClearImageButton(onPressed: () {
-                          pickImage(ImageSource.gallery).then((value) {
-                            if (_image != null) {
-                              textRecognition(_image!);
-                            }
-                          });
-                        }),
+                        ClearImageButton(onPressed: () {}),
                         SizedBox(width: context.width * 0.05),
                         CustomOrangeButton(
                           text: AppStrings.scanImage,
