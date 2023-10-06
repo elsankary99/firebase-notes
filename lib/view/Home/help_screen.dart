@@ -29,14 +29,16 @@ class HelpScreen extends ConsumerWidget {
           title: AppStrings.deleteAccount,
           icon: FontAwesomeIcons.trashCan,
           onTap: () {
-            context.router.push(const ImageToTextRoute());
+            context.router.push(const DeleteAccountRoute());
           },
         )),
         SliverToBoxAdapter(
             child: HelpBodyWidget(
           title: AppStrings.reset_pwd,
           icon: Icons.lock,
-          onTap: () {},
+          onTap: () {
+            context.router.push(const ResetPasswordRoute());
+          },
         )),
       ],
     );

@@ -10,7 +10,7 @@ class AppStrings {
 
   // App copyright
   static const String appCopyright =
-      '© Copyright HaBIT Note 2022. All rights reserved.';
+      '© Copyright Note App 2023. All rights reserved.';
 
   // Texts
   static const String createAccount = 'CREATE ACCOUNT';

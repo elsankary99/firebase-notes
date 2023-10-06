@@ -32,10 +32,10 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
-    AllNotesRoute.name: (routeData) {
+    DeleteAccountRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const ResetPasswordPage(),
+        child: const DeleteAccountPage(),
       );
     },
     ForgetPasswordRoute.name: (routeData) {
@@ -48,12 +48,6 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const HomePage(),
-      );
-    },
-    ImageToTextRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const DeleteAccountPage(),
       );
     },
     LoginRoute.name: (routeData) {
@@ -76,6 +70,12 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const OnBoardingPage(),
+      );
+    },
+    ResetPasswordRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ResetPasswordPage(),
       );
     },
     SignUpRoute.name: (routeData) {
@@ -152,15 +152,15 @@ class AddNoteRouteArgs {
 }
 
 /// generated route for
-/// [ResetPasswordPage]
-class AllNotesRoute extends PageRouteInfo<void> {
-  const AllNotesRoute({List<PageRouteInfo>? children})
+/// [DeleteAccountPage]
+class DeleteAccountRoute extends PageRouteInfo<void> {
+  const DeleteAccountRoute({List<PageRouteInfo>? children})
       : super(
-          AllNotesRoute.name,
+          DeleteAccountRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'AllNotesRoute';
+  static const String name = 'DeleteAccountRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -189,20 +189,6 @@ class HomeRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'HomeRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
-/// [DeleteAccountPage]
-class ImageToTextRoute extends PageRouteInfo<void> {
-  const ImageToTextRoute({List<PageRouteInfo>? children})
-      : super(
-          ImageToTextRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'ImageToTextRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -269,6 +255,20 @@ class OnBoardingRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'OnBoardingRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ResetPasswordPage]
+class ResetPasswordRoute extends PageRouteInfo<void> {
+  const ResetPasswordRoute({List<PageRouteInfo>? children})
+      : super(
+          ResetPasswordRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ResetPasswordRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

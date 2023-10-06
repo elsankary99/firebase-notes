@@ -35,8 +35,8 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: HomeRoute.page),
         AutoRoute(page: AddNoteRoute.page),
         AutoRoute(page: AboutRoute.page),
-        AutoRoute(page: ImageToTextRoute.page),
-        AutoRoute(page: AllNotesRoute.page),
+        AutoRoute(page: DeleteAccountRoute.page),
+        AutoRoute(page: ResetPasswordRoute.page),
         AutoRoute(page: NoteDetailsRoute.page),
       ];
 }
