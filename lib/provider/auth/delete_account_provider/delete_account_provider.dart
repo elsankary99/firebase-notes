@@ -33,4 +33,21 @@ class DeleteAccountProvider extends StateNotifier<DeleteAccountState> {
       state = DeleteAccountError(e.toString());
     }
   }
+
+  Future<void> logOut() async {
+    state = LogOutLoading();
+    try {
+      await FirebaseAuth.instance.signOut();
+      state = LogOutSuccess();
+      log('LogOutSuccess.');
+    } on FirebaseAuthException catch (e) {
+      log(e.toString());
+
+      state = LogOutError(e.toString());
+    } catch (e) {
+      log(e.toString());
+
+      state = LogOutError(e.toString());
+    }
+  }
 }

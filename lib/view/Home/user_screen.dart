@@ -1,13 +1,15 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:fb_note/core/constant/app_strings.dart';
 import 'package:fb_note/core/extension/media_query.dart';
 import 'package:fb_note/core/router/app_router.dart';
+import 'package:fb_note/core/widget/custom_circle_indicator.dart';
 import 'package:fb_note/core/widget/custom_dialog.dart';
 import 'package:fb_note/core/widget/custom_orange_buton.dart';
 import 'package:fb_note/core/widget/custom_toast.dart';
+import 'package:fb_note/provider/auth/delete_account_provider/delete_account_provider.dart';
 import 'package:fb_note/view/widget/home_widget/custom_appbar.dart';
 import 'package:fb_note/view/widget/home_widget/user_information.dart';
 import 'package:fb_note/view/widget/home_widget/user_screen_setting.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -16,6 +18,23 @@ class UserScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final provider = ref.read(deleteAccountProvider.notifier);
+    final state = ref.watch(deleteAccountProvider);
+    ref.listen(
+      deleteAccountProvider,
+      (previous, next) {
+        if (next is LogOutLoading) {
+          context.router.pop();
+        }
+        if (next is LogOutSuccess) {
+          router.replace(const LoginRoute());
+          customToast(title: "SignOut Success");
+        }
+        if (next is LogOutError) {
+          customToast(title: next.message, color: Colors.red);
+        }
+      },
+    );
     return CustomScrollView(
       physics: const BouncingScrollPhysics(),
       slivers: [
@@ -34,14 +53,15 @@ class UserScreen extends ConsumerWidget {
               text: AppStrings.log_out,
               onPressed: () {
                 showMyDialog(context, onPressed: () async {
-                  await FirebaseAuth.instance.signOut();
-                  router.replace(const LoginRoute());
-                  customToast(title: "SignOut Success");
+                  await provider.logOut();
                 },
                     header: AppStrings.log_out,
                     btnTitle: AppStrings.log_out,
                     title: AppStrings.sureLogOut);
-              }),
+              },
+              child: state is LogOutLoading
+                  ? const CustomCircleIndicator()
+                  : null),
         ))
       ],
     );
