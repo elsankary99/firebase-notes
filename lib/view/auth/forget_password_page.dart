@@ -1,3 +1,8 @@
+import 'package:fb_note/core/widget/custom_circle_indicator.dart';
+import 'package:fb_note/core/widget/custom_dialog.dart';
+import 'package:fb_note/core/widget/custom_toast.dart';
+import 'package:fb_note/provider/auth/reset_forget_password/reset_and_forget_provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:fb_note/core/constant/app-colors.dart';
 import 'package:fb_note/core/constant/app_strings.dart';
@@ -9,11 +14,28 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 @RoutePage()
-class ForgetPasswordPage extends StatelessWidget {
+class ForgetPasswordPage extends ConsumerWidget {
   const ForgetPasswordPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final provider = ref.read(resetAndForgetProvider.notifier);
+    final state = ref.watch(resetAndForgetProvider);
+    ref.listen(
+      resetAndForgetProvider,
+      (previous, next) {
+        if (next is ForgetPasswordSuccess) {
+          customToast(title: "The link has been sent successfully");
+          context.router.pop();
+        }
+        if (next is ForgetPasswordLoading) {
+          context.router.pop();
+        }
+        if (next is ForgetPasswordError) {
+          customToast(title: next.message, color: Colors.red);
+        }
+      },
+    );
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -42,14 +64,35 @@ class ForgetPasswordPage extends StatelessWidget {
                 style: AppTextStyle.lato300Style18),
           ),
           SliverToBoxAdapter(child: SizedBox(height: context.height * 0.1)),
-          const SliverToBoxAdapter(
-              child: CustomTextFormField(
-                  hint: AppStrings.emailAddress,
-                  icon: FontAwesomeIcons.envelope)),
+          SliverToBoxAdapter(
+              child: Form(
+            key: provider.formKey,
+            child: CustomTextFormField(
+                onChanged: (email) {
+                  provider.email = email.trim();
+                },
+                hint: AppStrings.emailAddress,
+                icon: FontAwesomeIcons.envelope),
+          )),
           SliverToBoxAdapter(child: SizedBox(height: context.height * 0.35)),
           SliverToBoxAdapter(
               child: CustomOrangeButton(
-                  onPressed: () {}, text: AppStrings.submit.toUpperCase())),
+                  onPressed: () {
+                    if (provider.formKey.currentState!.validate()) {
+                      showMyDialog(context,
+                          btnTitle: "Submit",
+                          header: "Forget Password",
+                          title:
+                              "We'll send a link for\n''${provider.email}''\n to reset your password ",
+                          onPressed: () async {
+                        await provider.forgetPassword();
+                      });
+                    }
+                  },
+                  text: AppStrings.submit.toUpperCase(),
+                  child: state is ForgetPasswordLoading
+                      ? const CustomCircleIndicator()
+                      : null)),
           SliverToBoxAdapter(child: SizedBox(height: context.height * 0.02)),
         ]),
       ),

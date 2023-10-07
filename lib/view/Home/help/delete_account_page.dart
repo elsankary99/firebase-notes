@@ -31,7 +31,7 @@ class DeleteAccountPage extends ConsumerWidget {
           context.router.pop();
         }
         if (next is DeleteAccountError) {
-          customToast(title: next.message);
+          customToast(title: next.message, color: Colors.red);
         }
       },
     );
