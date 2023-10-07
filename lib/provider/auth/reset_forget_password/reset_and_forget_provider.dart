@@ -12,9 +12,10 @@ final resetAndForgetProvider =
 
 class ResetAndForgetProvider extends StateNotifier<ResetAndForgetState> {
   ResetAndForgetProvider() : super(ResetAndForgetInitial());
-
+  String? password;
   String? email;
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  GlobalKey<FormState> formKey1 = GlobalKey<FormState>();
   Future<void> forgetPassword() async {
     state = ForgetPasswordLoading();
     log("ResetPasswordLoading");
@@ -28,6 +29,23 @@ class ResetAndForgetProvider extends StateNotifier<ResetAndForgetState> {
         log(e.toString());
 
         state = ForgetPasswordError(e.toString());
+      }
+    }
+  }
+
+  Future<void> resetPassword() async {
+    state = ResetPasswordLoading();
+    log("ResetPasswordLoading");
+    if (formKey1.currentState!.validate()) {
+      try {
+        await FirebaseAuth.instance.currentUser!.updatePassword(password!);
+        log("ResetPasswordSuccess");
+
+        state = ResetPasswordSuccess();
+      } catch (e) {
+        log(e.toString());
+
+        state = ResetPasswordError(e.toString());
       }
     }
   }
