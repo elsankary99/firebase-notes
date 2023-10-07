@@ -15,5 +15,23 @@ final changeThemeProvider = ChangeNotifierProvider<ChangeTheme>((ref) {
 class ChangeTheme extends ChangeNotifier {
   final SharedPreferences prefs;
 
-  ChangeTheme({required this.prefs});
+  ChangeTheme({required this.prefs}) {
+    boot();
+  }
+  bool? isDark;
+  Future<void> boot() async {
+    bool savedTheme = getSavedTheme();
+    isDark = savedTheme;
+    notifyListeners();
+    log("=====boot==$isDark=========");
+  }
+
+  Future<void> changeTheme(bool isDark) async {
+    await prefs.setBool("isDark", isDark);
+    this.isDark = isDark;
+    notifyListeners();
+    log("====isDark====$isDark======");
+  }
+
+  bool getSavedTheme() => prefs.getBool("isDark") ?? false;
 }
