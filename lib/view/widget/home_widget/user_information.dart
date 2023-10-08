@@ -1,3 +1,4 @@
+import 'package:fb_note/core/constant/app_images.dart';
 import 'package:fb_note/core/extension/media_query.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,7 @@ class UserInformation extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
       child: Row(children: [
-        CircleAvatar(radius: 40.r),
+        CircleAvatar(radius: 40.r, child: Image.asset(Assets.assetsImagesUser)),
         SizedBox(width: context.width * 0.05),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,

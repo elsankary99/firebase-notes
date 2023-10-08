@@ -67,7 +67,8 @@ class _HomePageState extends State<HomePage>
         children: children,
       ),
       bottomNavigationBar: DotNavigationBar(
-        backgroundColor: AppColors.lightGrey,
+        // backgroundColor: Colors.grey[800],
+        backgroundColor: Theme.of(context).hintColor,
         currentIndex: currentIndex,
         onTap: (i) {
           setState(() {

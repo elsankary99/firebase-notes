@@ -19,7 +19,7 @@ class WelcomeText extends StatelessWidget {
         Text(
           title1,
           style:
-              Theme.of(context).textTheme.labelLarge!.copyWith(fontSize: 18.sp),
+              Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 18.sp),
         ),
         SizedBox(height: context.height * 0.01),
         Text(title2, style: Theme.of(context).textTheme.titleSmall),

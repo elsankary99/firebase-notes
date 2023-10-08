@@ -6,6 +6,7 @@ import 'package:fb_note/core/router/app_router.dart';
 import 'package:fb_note/view/widget/home_widget/help_body_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HelpScreen extends ConsumerWidget {
@@ -21,10 +22,10 @@ class HelpScreen extends ConsumerWidget {
           expandedHeight: context.height * 0.3,
           flexibleSpace: Center(
             child: Text(AppStrings.help,
-                style: Theme.of(context)
-                    .textTheme
-                    .labelLarge!
-                    .copyWith(color: Theme.of(context).canvasColor)),
+                style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 34.sp,
+                    color: Theme.of(context).canvasColor)),
           ),
         ),
         SliverToBoxAdapter(
