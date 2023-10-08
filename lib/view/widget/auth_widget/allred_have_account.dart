@@ -15,7 +15,8 @@ class AlreadyHaveAccount extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(AppStrings.alreadyHaveAccount, style: AppTextStyle.lato300Style18),
+        Text(AppStrings.alreadyHaveAccount,
+            style: Theme.of(context).textTheme.titleSmall),
         InkWell(
           onTap: () {
             context.router.replace(const LoginRoute());

@@ -70,7 +70,7 @@ class VerifyEmailPage extends ConsumerWidget {
                         side: const BorderSide(color: AppColors.black))),
                 child: Text(
                   AppStrings.kContinue,
-                  style: AppTextStyle.lato300Style18,
+                  style: Theme.of(context).textTheme.titleSmall,
                 ),
               ),
             ),

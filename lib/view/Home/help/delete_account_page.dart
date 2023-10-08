@@ -58,7 +58,7 @@ class DeleteAccountPage extends ConsumerWidget {
                   Text(
                     "Delete your account",
                     textAlign: TextAlign.center,
-                    style: AppTextStyle.lato400Style24,
+                    style: Theme.of(context).textTheme.labelMedium,
                   ),
                   SizedBox(height: context.height * 0.02),
                   Text(

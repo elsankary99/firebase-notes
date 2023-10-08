@@ -1,6 +1,4 @@
 import 'package:fb_note/core/constant/app-colors.dart';
-
-import 'package:fb_note/core/constant/app_text_style.dart';
 import 'package:fb_note/core/extension/media_query.dart';
 import 'package:flutter/material.dart';
 
@@ -29,7 +27,10 @@ class CustomOrangeButton extends StatelessWidget {
         child: child ??
             Text(
               text,
-              style: AppTextStyle.lato400Style14,
+              style: Theme.of(context)
+                  .textTheme
+                  .titleLarge!
+                  .copyWith(color: Theme.of(context).canvasColor),
             ),
       ),
     );

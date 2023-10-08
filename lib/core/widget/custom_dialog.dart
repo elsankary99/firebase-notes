@@ -18,7 +18,10 @@ Future<void> showMyDialog(BuildContext context,
         title: Text(header),
         content: Text(
           title,
-          style: AppTextStyle.lato400Style14.copyWith(color: Colors.grey),
+          style: Theme.of(context)
+              .textTheme
+              .titleLarge!
+              .copyWith(color: Colors.grey),
         ),
         actions: [
           Padding(

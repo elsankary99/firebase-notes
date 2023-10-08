@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:fb_note/core/constant/app-colors.dart';
 import 'package:fb_note/core/constant/app_strings.dart';
-import 'package:fb_note/core/constant/app_text_style.dart';
 import 'package:fb_note/core/extension/media_query.dart';
 import 'package:fb_note/core/router/app_router.dart';
 import 'package:fb_note/provider/home_provider/note_provider/notes_provider.dart';
@@ -24,9 +23,8 @@ class NoteScreen extends ConsumerWidget {
             AppBar(
               elevation: 0,
               backgroundColor: Colors.transparent,
-              title: Text(
+              title: const Text(
                 AppStrings.notes,
-                style: AppTextStyle.lato500Style24,
               ),
             ),
             Expanded(
@@ -63,7 +61,10 @@ class NoteScreen extends ConsumerWidget {
               context.router.push(AddNoteRoute());
             },
             backgroundColor: AppColors.orange,
-            child: const Icon(Icons.add),
+            child: Icon(
+              Icons.add,
+              color: Theme.of(context).canvasColor,
+            ),
           ),
         ),
       ],

@@ -1,5 +1,4 @@
 import 'package:fb_note/core/constant/app_strings.dart';
-import 'package:fb_note/core/constant/app_text_style.dart';
 import 'package:fb_note/view/widget/auth_widget/custom_check_box.dart';
 import 'package:flutter/material.dart';
 
@@ -17,16 +16,16 @@ class TermsAndConditionWidget extends StatelessWidget {
         Text(
           AppStrings.iHaveAgreeToOur,
           textAlign: TextAlign.center,
-          style: AppTextStyle.lato400Style12,
+          style: Theme.of(context).textTheme.titleMedium,
         ),
         InkWell(
           onTap: () {},
           child: Text(
             AppStrings.termsAndCondition,
             textAlign: TextAlign.center,
-            style: AppTextStyle.lato400Style12.copyWith(
-              decoration: TextDecoration.underline,
-            ),
+            style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                  decoration: TextDecoration.underline,
+                ),
           ),
         ),
       ],

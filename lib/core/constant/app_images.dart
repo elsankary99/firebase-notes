@@ -10,8 +10,8 @@ class Assets {
   static const String assetsImagesEmpty = "assets/images/empty.png";
 
   /// Assets for assetsImagesEmptyNote
-  /// assets/images/empty-note.jpg
-  static const String assetsImagesEmptyNote = "assets/images/empty-note.jpg";
+  /// assets/images/empty-note.png
+  static const String assetsImagesEmptyNote = "assets/images/empty-note.png";
 
   /// Assets for assetsImagesFilterIcon
   /// assets/images/filter_icon.svg

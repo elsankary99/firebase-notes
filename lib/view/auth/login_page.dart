@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:fb_note/core/constant/app_strings.dart';
-import 'package:fb_note/core/constant/app_text_style.dart';
 import 'package:fb_note/core/extension/media_query.dart';
 import 'package:fb_note/view/widget/auth_widget/dont_have_account.dart';
 import 'package:fb_note/view/widget/auth_widget/form_login_validator.dart';
@@ -23,7 +22,7 @@ class LoginPage extends StatelessWidget {
             centerTitle: true,
             title: Text(
               AppStrings.login,
-              style: AppTextStyle.lato300Style18,
+              style: Theme.of(context).textTheme.titleSmall,
             ),
           ),
           SliverToBoxAdapter(child: SizedBox(height: context.height * 0.1)),

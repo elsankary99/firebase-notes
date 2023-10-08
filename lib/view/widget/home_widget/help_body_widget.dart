@@ -1,6 +1,5 @@
 import 'package:fb_note/core/constant/app-colors.dart';
 import 'package:fb_note/core/constant/app_strings.dart';
-import 'package:fb_note/core/constant/app_text_style.dart';
 import 'package:fb_note/core/extension/media_query.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -34,7 +33,7 @@ class HelpBodyWidget extends StatelessWidget {
             Icon(
               icon,
               size: 45.sp,
-              color: Colors.white,
+              color: Theme.of(context).canvasColor,
             ),
             SizedBox(
               width: context.width * 0.05,
@@ -45,14 +44,20 @@ class HelpBodyWidget extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: AppTextStyle.lato400Style24,
+                  style: Theme.of(context)
+                      .textTheme
+                      .labelMedium!
+                      .copyWith(color: Theme.of(context).canvasColor),
                 ),
                 SizedBox(
                   height: context.height * 0.005,
                 ),
                 Text(
                   AppStrings.tapToView,
-                  style: AppTextStyle.lato300Style18,
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleSmall!
+                      .copyWith(color: Theme.of(context).canvasColor),
                 ),
               ],
             )

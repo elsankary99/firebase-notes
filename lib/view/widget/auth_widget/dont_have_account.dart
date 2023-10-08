@@ -15,7 +15,8 @@ class DontHaveAccount extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(AppStrings.dntHaveAccount, style: AppTextStyle.lato300Style18),
+        Text(AppStrings.dntHaveAccount,
+            style: Theme.of(context).textTheme.titleSmall),
         InkWell(
           onTap: () {
             context.router.replace(const SignUpRoute());

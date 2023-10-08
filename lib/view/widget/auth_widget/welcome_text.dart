@@ -21,7 +21,7 @@ class WelcomeText extends StatelessWidget {
           style: AppTextStyle.lato700Style18,
         ),
         SizedBox(height: context.height * 0.01),
-        Text(title2, style: AppTextStyle.lato300Style18),
+        Text(title2, style: Theme.of(context).textTheme.titleSmall),
       ],
     );
   }

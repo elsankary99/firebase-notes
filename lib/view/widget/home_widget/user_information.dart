@@ -1,4 +1,3 @@
-import 'package:fb_note/core/constant/app_text_style.dart';
 import 'package:fb_note/core/extension/media_query.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -21,12 +20,12 @@ class UserInformation extends StatelessWidget {
           children: [
             Text(
               'Ahmed Ebrahim',
-              style: AppTextStyle.lato400Style18,
+              style: Theme.of(context).textTheme.bodyMedium,
             ),
             SizedBox(height: context.height * 0.01),
             Text(
               FirebaseAuth.instance.currentUser!.email!,
-              style: AppTextStyle.lato400Style18,
+              style: Theme.of(context).textTheme.bodyMedium,
             ),
           ],
         ),

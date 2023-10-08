@@ -6,7 +6,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:fb_note/core/constant/app-colors.dart';
 import 'package:fb_note/core/constant/app_strings.dart';
-import 'package:fb_note/core/constant/app_text_style.dart';
 import 'package:fb_note/core/extension/media_query.dart';
 import 'package:fb_note/core/widget/custom_orange_buton.dart';
 import 'package:fb_note/view/widget/auth_widget/custom_text_form_field.dart';
@@ -52,7 +51,7 @@ class ForgetPasswordPage extends ConsumerWidget {
         centerTitle: true,
         title: Text(
           AppStrings.forgot_pwd,
-          style: AppTextStyle.lato300Style18,
+          style: Theme.of(context).textTheme.titleSmall,
         ),
       ),
       body: Padding(
@@ -61,7 +60,7 @@ class ForgetPasswordPage extends ConsumerWidget {
           SliverToBoxAdapter(child: SizedBox(height: context.height * 0.1)),
           SliverToBoxAdapter(
             child: Text(AppStrings.pleaseEnterYourAccount,
-                style: AppTextStyle.lato300Style18),
+                style: Theme.of(context).textTheme.titleSmall),
           ),
           SliverToBoxAdapter(child: SizedBox(height: context.height * 0.1)),
           SliverToBoxAdapter(

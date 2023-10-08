@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:fb_note/core/constant/app-colors.dart';
 import 'package:fb_note/core/constant/app_strings.dart';
-import 'package:fb_note/core/constant/app_text_style.dart';
 import 'package:fb_note/core/extension/media_query.dart';
 import 'package:fb_note/core/router/app_router.dart';
 import 'package:fb_note/core/widget/custom_circle_indicator.dart';
@@ -38,12 +37,11 @@ class _OCRScreenState extends ConsumerState<OCRScreen> {
     return CustomScrollView(
       physics: const BouncingScrollPhysics(),
       slivers: [
-        SliverAppBar(
+        const SliverAppBar(
           backgroundColor: Colors.transparent,
           elevation: 0,
           title: Text(
             AppStrings.ocrScreen,
-            style: AppTextStyle.lato500Style34,
           ),
         ),
         SliverToBoxAdapter(
@@ -101,7 +99,7 @@ class _OCRScreenState extends ConsumerState<OCRScreen> {
                           children: [
                             SelectableText(
                               provider.title,
-                              style: AppTextStyle.lato400Style18,
+                              style: Theme.of(context).textTheme.bodyMedium,
                             ),
                           ],
                         ),

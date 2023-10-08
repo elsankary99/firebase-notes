@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:fb_note/core/constant/app_strings.dart';
-import 'package:fb_note/core/constant/app_text_style.dart';
 import 'package:fb_note/core/extension/media_query.dart';
 import 'package:fb_note/view/widget/auth_widget/allred_have_account.dart';
 import 'package:fb_note/view/widget/auth_widget/form_sinup_validator.dart';
@@ -25,7 +24,7 @@ class SignUpPage extends StatelessWidget {
               centerTitle: true,
               title: Text(
                 AppStrings.createAccount,
-                style: AppTextStyle.lato300Style18,
+                style: Theme.of(context).textTheme.titleSmall,
               ),
             ),
             SliverToBoxAdapter(child: SizedBox(height: context.height * 0.05)),
