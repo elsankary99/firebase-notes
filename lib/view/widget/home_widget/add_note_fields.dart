@@ -1,7 +1,7 @@
 import 'package:fb_note/provider/home_provider/note_provider/notes_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:fb_note/core/constant/app_text_style.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AddNoteFelids extends ConsumerWidget {
   final String? subtitle;
@@ -27,9 +27,17 @@ class AddNoteFelids extends ConsumerWidget {
                   provider.title = title!.trim();
                 },
                 maxLength: 30,
-                style: AppTextStyle.lato500Style34,
-                decoration: const InputDecoration(
-                    border: InputBorder.none, hintText: "Title")),
+                style: Theme.of(context)
+                    .textTheme
+                    .labelMedium!
+                    .copyWith(fontSize: 30.sp),
+                decoration: InputDecoration(
+                    border: InputBorder.none,
+                    hintText: "Title",
+                    hintStyle: Theme.of(context)
+                        .textTheme
+                        .labelMedium!
+                        .copyWith(fontSize: 30.sp))),
             TextFormField(
                 validator: (value) {
                   if (value!.trim().isEmpty) {
@@ -43,10 +51,12 @@ class AddNoteFelids extends ConsumerWidget {
                 onSaved: (subTitle) {
                   provider.subTitle = subTitle!.trim();
                 },
-                style: AppTextStyle.lato500Style24,
+                style: Theme.of(context).textTheme.labelMedium,
                 maxLines: null,
-                decoration: const InputDecoration(
-                    border: InputBorder.none, hintText: "Sub Title")),
+                decoration: InputDecoration(
+                    border: InputBorder.none,
+                    hintText: "Sub Title",
+                    hintStyle: Theme.of(context).textTheme.labelMedium)),
           ],
         ),
       ),

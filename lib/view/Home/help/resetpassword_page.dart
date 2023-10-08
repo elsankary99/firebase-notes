@@ -34,7 +34,6 @@ class ResetPasswordPage extends ConsumerWidget {
       },
     );
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -56,7 +55,7 @@ class ResetPasswordPage extends ConsumerWidget {
               Text(
                 "Reset Your Password",
                 textAlign: TextAlign.center,
-                style: AppTextStyle.lato400Style24,
+                style: Theme.of(context).textTheme.labelMedium,
               ),
               SizedBox(height: context.height * 0.05),
               CustomResetPasswordField(
@@ -111,7 +110,7 @@ class ResetPasswordPage extends ConsumerWidget {
                       : Text(
                           "Reset Password",
                           style: AppTextStyle.lato700Style14
-                              .copyWith(color: Colors.white),
+                              .copyWith(color: Theme.of(context).canvasColor),
                         ),
                 ),
               ),

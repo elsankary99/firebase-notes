@@ -20,6 +20,7 @@ class _CustomPasswordFormFieldState extends State<CustomPasswordFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      style: Theme.of(context).textTheme.titleSmall,
       onChanged: widget.onChanged,
       validator: (value) {
         if (value!.trim().isEmpty) {
@@ -44,6 +45,7 @@ class _CustomPasswordFormFieldState extends State<CustomPasswordFormField> {
           focusedBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: AppColors.orange, width: 1.5)),
           hintText: AppStrings.password,
+          hintStyle: Theme.of(context).textTheme.titleSmall,
           prefixIcon: const Icon(Icons.lock),
           border: const OutlineInputBorder()),
     );

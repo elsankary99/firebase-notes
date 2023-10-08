@@ -11,6 +11,7 @@ class CustomTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      style: Theme.of(context).textTheme.titleSmall,
       onChanged: onChanged,
       validator: (value) {
         if (value!.trim().isEmpty) {
@@ -24,6 +25,7 @@ class CustomTextFormField extends StatelessWidget {
           focusedBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: AppColors.orange, width: 1.5)),
           hintText: hint,
+          hintStyle: Theme.of(context).textTheme.titleSmall,
           prefixIcon: Icon(icon),
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(5))),
     );

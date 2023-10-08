@@ -1,5 +1,4 @@
 import 'package:fb_note/core/constant/app-colors.dart';
-import 'package:fb_note/core/constant/app_text_style.dart';
 import 'package:fb_note/core/extension/media_query.dart';
 import 'package:fb_note/provider/home_provider/note_provider/notes_provider.dart';
 import 'package:flutter/material.dart';
@@ -75,7 +74,7 @@ class _PickNoteColorState extends ConsumerState<PickNoteColor> {
                 children: [
                   Text(
                     "Select color ...",
-                    style: AppTextStyle.lato400Style18,
+                    style: Theme.of(context).textTheme.bodyMedium,
                   ),
                   Icon(
                     open

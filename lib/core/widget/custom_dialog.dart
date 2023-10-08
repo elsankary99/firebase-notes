@@ -16,6 +16,7 @@ Future<void> showMyDialog(BuildContext context,
       return AlertDialog(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         title: Text(header),
+        backgroundColor: Theme.of(context).canvasColor,
         content: Text(
           title,
           style: Theme.of(context)
@@ -35,7 +36,7 @@ Future<void> showMyDialog(BuildContext context,
                         context.router.pop();
                       },
                       style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.white,
+                          backgroundColor: Theme.of(context).canvasColor,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8),
                               side: const BorderSide(color: Colors.grey))),
@@ -56,7 +57,7 @@ Future<void> showMyDialog(BuildContext context,
                       child: Text(
                         btnTitle,
                         style: AppTextStyle.lato500Style14
-                            .copyWith(color: Colors.white),
+                            .copyWith(color: Theme.of(context).canvasColor),
                       )),
                 ),
               ],
@@ -76,6 +77,7 @@ Future<void> getImage(BuildContext context,
     barrierDismissible: false, // user must tap button!
     builder: (BuildContext context) {
       return AlertDialog(
+        backgroundColor: Theme.of(context).canvasColor,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         actions: [
           Padding(
@@ -96,7 +98,7 @@ Future<void> getImage(BuildContext context,
                       child: Text(
                         "Image From Gallery",
                         style: AppTextStyle.lato700Style14
-                            .copyWith(color: Colors.white),
+                            .copyWith(color: Theme.of(context).canvasColor),
                       )),
                   ElevatedButton(
                       onPressed: cameraBtn,
@@ -108,14 +110,14 @@ Future<void> getImage(BuildContext context,
                       child: Text(
                         "Image From Camera",
                         style: AppTextStyle.lato700Style14
-                            .copyWith(color: Colors.white),
+                            .copyWith(color: Theme.of(context).canvasColor),
                       )),
                   ElevatedButton(
                       onPressed: () {
                         context.router.pop();
                       },
                       style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.white,
+                          backgroundColor: Theme.of(context).canvasColor,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8),
                               side: const BorderSide(color: Colors.grey))),

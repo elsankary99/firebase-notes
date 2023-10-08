@@ -23,6 +23,7 @@ class _CustomResetPasswordFieldState extends State<CustomResetPasswordField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      style: Theme.of(context).textTheme.titleSmall,
       onChanged: widget.onChanged,
       validator: widget.validator,
       obscureText: hide,
@@ -42,6 +43,7 @@ class _CustomResetPasswordFieldState extends State<CustomResetPasswordField> {
           focusedBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: AppColors.orange, width: 1.5)),
           hintText: widget.hint,
+          hintStyle: Theme.of(context).textTheme.titleSmall,
           prefixIcon: const Icon(Icons.lock),
           border: const OutlineInputBorder()),
     );

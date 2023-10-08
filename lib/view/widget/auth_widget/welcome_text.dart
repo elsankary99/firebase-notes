@@ -1,6 +1,6 @@
-import 'package:fb_note/core/constant/app_text_style.dart';
 import 'package:fb_note/core/extension/media_query.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class WelcomeText extends StatelessWidget {
   final String title1;
@@ -18,7 +18,8 @@ class WelcomeText extends StatelessWidget {
       children: [
         Text(
           title1,
-          style: AppTextStyle.lato700Style18,
+          style:
+              Theme.of(context).textTheme.labelLarge!.copyWith(fontSize: 18.sp),
         ),
         SizedBox(height: context.height * 0.01),
         Text(title2, style: Theme.of(context).textTheme.titleSmall),

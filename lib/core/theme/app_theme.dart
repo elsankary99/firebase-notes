@@ -14,16 +14,15 @@ ThemeData getAppTheme(BuildContext context, bool isDarkTheme) {
             titleLarge: AppTextStyle.lato400Style14,
             bodyMedium: AppTextStyle.lato400Style18,
             bodyLarge: AppTextStyle.lato500Style14,
+            headlineLarge: AppTextStyle.lato500Style34,
             labelMedium: AppTextStyle.lato400Style24,
             labelLarge: AppTextStyle.lato700Style40)
         .apply(
           bodyColor: isDarkTheme ? Colors.white : Colors.black,
-          displayColor: const Color.fromARGB(255, 15, 12, 12),
         ),
-    // switchTheme: SwitchThemeData(
-    //   thumbColor: MaterialStateProperty.all(
-    //       isDarkTheme ? Colors.orange : Colors.purple),
-    // ),
+    switchTheme: SwitchThemeData(
+      thumbColor: MaterialStateProperty.all(Colors.orange),
+    ),
     listTileTheme: ListTileThemeData(
       titleTextStyle: Theme.of(context)
           .textTheme
