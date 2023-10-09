@@ -1,4 +1,4 @@
-import 'package:fb_note/core/constant/app-colors.dart';
+import 'package:fb_note/core/constant/app_colors.dart';
 import 'package:fb_note/core/constant/app_text_style.dart';
 import 'package:flutter/material.dart';
 

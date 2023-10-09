@@ -1,4 +1,4 @@
-import 'package:fb_note/core/constant/app-colors.dart';
+import 'package:fb_note/core/constant/app_colors.dart';
 import 'package:fb_note/core/extension/media_query.dart';
 import 'package:fb_note/data/model/onboarding_model.dart';
 import 'package:fb_note/view/widget/onboarding_widget/onboarding_widget.dart';

@@ -4,7 +4,7 @@ import 'package:fb_note/core/widget/custom_toast.dart';
 import 'package:fb_note/provider/auth/reset_forget_password/reset_and_forget_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:fb_note/core/constant/app-colors.dart';
+import 'package:fb_note/core/constant/app_colors.dart';
 import 'package:fb_note/core/constant/app_strings.dart';
 import 'package:fb_note/core/extension/media_query.dart';
 import 'package:fb_note/core/widget/custom_orange_buton.dart';
@@ -50,7 +50,7 @@ class ForgetPasswordPage extends ConsumerWidget {
             )),
         centerTitle: true,
         title: Text(
-          AppStrings.forgot_pwd,
+          AppStrings.forgotPwd,
           style: Theme.of(context).textTheme.titleSmall,
         ),
       ),

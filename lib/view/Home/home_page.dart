@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:dot_navigation_bar/dot_navigation_bar.dart';
-import 'package:fb_note/core/constant/app-colors.dart';
+import 'package:fb_note/core/constant/app_colors.dart';
 import 'package:fb_note/view/Home/help_screen.dart';
 import 'package:fb_note/view/Home/note_screen.dart';
 import 'package:fb_note/view/Home/ocr_screen.dart';

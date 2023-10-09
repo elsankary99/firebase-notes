@@ -5,7 +5,7 @@ import 'package:fb_note/core/widget/custom_toast.dart';
 import 'package:fb_note/provider/auth/sidnup_provider/signup_provider.dart';
 import 'package:fb_note/provider/home_provider/profile_image/profile_image_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:fb_note/core/constant/app-colors.dart';
+import 'package:fb_note/core/constant/app_colors.dart';
 import 'package:fb_note/core/extension/media_query.dart';
 import 'package:fb_note/core/widget/custom_dialog.dart';
 import 'package:firebase_auth/firebase_auth.dart';

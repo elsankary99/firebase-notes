@@ -1,6 +1,6 @@
 import 'package:fb_note/provider/auth/sidnup_provider/signup_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:fb_note/core/constant/app-colors.dart';
+import 'package:fb_note/core/constant/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomCheckBox extends ConsumerWidget {

@@ -20,7 +20,7 @@ class CreateYourFirstNoteWidget extends StatelessWidget {
         ),
         SizedBox(height: context.height * 0.03),
         Text(
-          AppStrings.home_empty_note,
+          AppStrings.homeEmptyNote,
           style: Theme.of(context).textTheme.titleSmall,
         )
       ],

@@ -50,13 +50,13 @@ class UserScreen extends ConsumerWidget {
             child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 50),
           child: CustomOrangeButton(
-              text: AppStrings.log_out,
+              text: AppStrings.logOut,
               onPressed: () {
                 showMyDialog(context, onPressed: () async {
                   await provider.logOut();
                 },
-                    header: AppStrings.log_out,
-                    btnTitle: AppStrings.log_out,
+                    header: AppStrings.logOut,
+                    btnTitle: AppStrings.logOut,
                     title: AppStrings.sureLogOut);
               },
               child: state is LogOutLoading

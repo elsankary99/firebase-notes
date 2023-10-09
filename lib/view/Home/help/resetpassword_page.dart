@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:fb_note/core/constant/app-colors.dart';
+import 'package:fb_note/core/constant/app_colors.dart';
 import 'package:fb_note/core/constant/app_text_style.dart';
 import 'package:fb_note/core/extension/media_query.dart';
 import 'package:fb_note/core/widget/custom_circle_indicator.dart';
