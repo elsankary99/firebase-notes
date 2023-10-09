@@ -1,9 +1,9 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:fb_note/core/constant/app_text_style.dart';
 import 'package:fb_note/core/extension/media_query.dart';
 import 'package:fb_note/core/router/app_router.dart';
 import 'package:fb_note/data/model/notes_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class NoteCard extends StatelessWidget {
   final NotesModel data;
@@ -26,14 +26,20 @@ class NoteCard extends StatelessWidget {
           Text(data.title!,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
-              style: AppTextStyle.lato500Style24),
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyLarge!
+                  .copyWith(fontSize: 25.sp)),
           SizedBox(height: context.height * 0.01),
           Expanded(
             child: Text(
               data.subTitle!,
               maxLines: 3,
               overflow: TextOverflow.ellipsis,
-              style: AppTextStyle.lato400Style18,
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyLarge!
+                  .copyWith(fontSize: 18.sp),
             ),
           ),
         ]),

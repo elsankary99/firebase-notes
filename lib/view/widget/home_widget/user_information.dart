@@ -2,6 +2,7 @@ import 'package:fb_note/core/constant/app_images.dart';
 import 'package:fb_note/core/router/app_router.dart';
 import 'package:fb_note/core/widget/custom_circle_indicator.dart';
 import 'package:fb_note/core/widget/custom_toast.dart';
+import 'package:fb_note/provider/auth/sidnup_provider/signup_provider.dart';
 import 'package:fb_note/provider/home_provider/profile_image/profile_image_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fb_note/core/constant/app-colors.dart';
@@ -37,12 +38,12 @@ class UserInformation extends ConsumerWidget {
                   width: context.height * 0.16,
                   child: ref.watch(getImageProvider).when(
                         skipLoadingOnRefresh: false,
-                        data: (data) => data != null
-                            ? Image.network(
+                        data: (data) => data == null
+                            ? Image.asset(Assets.assetsImagesUser)
+                            : Image.network(
                                 data,
                                 fit: BoxFit.fill,
-                              )
-                            : Image.asset(Assets.assetsImagesUser),
+                              ),
                         error: (error, stackTrace) => customToast(
                             title: error.toString(), color: Colors.red),
                         loading: () => const CustomCircleIndicator(
@@ -82,10 +83,16 @@ class UserInformation extends ConsumerWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              'Ahmed Ebrahim',
-              style: Theme.of(context).textTheme.bodyMedium,
-            ),
+            ref.watch(getUserNameProvider).when(
+                data: (data) => Text(
+                      data.toUpperCase(),
+                      style: Theme.of(context).textTheme.bodyMedium,
+                    ),
+                error: (error, _) =>
+                    customToast(title: error.toString(), color: Colors.red),
+                loading: () => const CustomCircleIndicator(
+                      color: AppColors.orange,
+                    )),
             SizedBox(height: context.height * 0.01),
             Text(
               FirebaseAuth.instance.currentUser!.email!,

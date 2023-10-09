@@ -17,12 +17,12 @@ class _PickNoteColorState extends ConsumerState<PickNoteColor> {
   int currentIndex = 0;
   bool open = false;
   List<Color> colors = [
-    const Color(0xff003f7d),
+    const Color(0xff429EBD),
+    const Color(0xffE5BB8C),
+    const Color(0xff6D5271),
+    const Color(0xffBF814B),
+    const Color(0xff42594A),
     const Color(0xffff8e00),
-    const Color(0xff002347),
-    const Color(0xfffd7702),
-    const Color(0xff003366),
-    const Color(0xffff5003),
   ];
   @override
   Widget build(BuildContext context) {

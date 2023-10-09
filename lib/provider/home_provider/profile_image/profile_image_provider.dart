@@ -58,5 +58,5 @@ class ProfileImageProvider extends StateNotifier<ProfileImageState> {
 final getImageProvider = FutureProvider<String?>((ref) async {
   final userImage = FirebaseFirestore.instance.collection("userImage");
   final url = await userImage.doc(FirebaseAuth.instance.currentUser!.uid).get();
-  return url.data()!["image"];
+  return url.data()?["image"];
 });

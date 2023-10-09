@@ -37,6 +37,7 @@ class EditNoteValidator extends ConsumerWidget {
               // onSaved: ,
               enabled: edit,
               maxLength: 30,
+              maxLines: null,
               controller: titleController,
               style: Theme.of(context)
                   .textTheme

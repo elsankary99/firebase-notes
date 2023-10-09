@@ -27,6 +27,7 @@ class AddNoteFelids extends ConsumerWidget {
                   provider.title = title!.trim();
                 },
                 maxLength: 30,
+                maxLines: null,
                 style: Theme.of(context)
                     .textTheme
                     .labelMedium!

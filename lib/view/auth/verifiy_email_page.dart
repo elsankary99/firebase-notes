@@ -64,7 +64,7 @@ class VerifyEmailPage extends ConsumerWidget {
                   }
                 },
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.white,
+                    backgroundColor: Theme.of(context).canvasColor,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                         side: const BorderSide(color: AppColors.black))),

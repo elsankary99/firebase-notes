@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fb_note/provider/auth/sidnup_provider/signup_state.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -27,6 +28,7 @@ class SignUpProvider extends StateNotifier<SignUpState> {
           password: password!,
         );
         await FirebaseAuth.instance.currentUser!.sendEmailVerification();
+        await saveUserName();
         state = SignUpSuccess();
         log("+===============$SignUpSuccess================+");
       } on FirebaseAuthException catch (e) {
@@ -52,4 +54,23 @@ class SignUpProvider extends StateNotifier<SignUpState> {
     isSelected = value;
     state = TermsAndConditionState();
   }
+
+  Future<void> saveUserName() async {
+    try {
+      final userName = FirebaseFirestore.instance.collection("userName");
+      log("======${this.userName}=======");
+
+      await userName
+          .doc(FirebaseAuth.instance.currentUser!.uid)
+          .set({'user_named': this.userName});
+    } catch (e) {
+      log("======${e.toString()}=======");
+    }
+  }
 }
+
+final getUserNameProvider = FutureProvider<String>((ref) async {
+  final userImage = FirebaseFirestore.instance.collection("userName");
+  final url = await userImage.doc(FirebaseAuth.instance.currentUser!.uid).get();
+  return url.data()!["user_named"];
+});
