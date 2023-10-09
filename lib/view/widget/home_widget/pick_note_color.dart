@@ -17,8 +17,9 @@ class _PickNoteColorState extends ConsumerState<PickNoteColor> {
   int currentIndex = 0;
   bool open = false;
   List<Color> colors = [
+    const Color(0xffED553B),
+    const Color(0xffF6D55C),
     const Color(0xff429EBD),
-    const Color(0xffE5BB8C),
     const Color(0xff6D5271),
     const Color(0xffBF814B),
     const Color(0xff42594A),

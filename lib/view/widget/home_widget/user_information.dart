@@ -1,5 +1,5 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:fb_note/core/constant/app_images.dart';
-import 'package:fb_note/core/router/app_router.dart';
 import 'package:fb_note/core/widget/custom_circle_indicator.dart';
 import 'package:fb_note/core/widget/custom_toast.dart';
 import 'package:fb_note/provider/auth/sidnup_provider/signup_provider.dart';
@@ -23,6 +23,21 @@ class UserInformation extends ConsumerWidget {
     final provider = ref.read(profileImageProvider.notifier);
 
     ref.watch(profileImageProvider);
+    ref.listen(
+      profileImageProvider,
+      (previous, next) {
+        if (next is ProfileImageLoading) {
+          context.router.pop();
+        }
+        if (next is ProfileImageError) {
+          customToast(title: next.message);
+        }
+        if (next is ProfileImageSuccess) {
+          ref.invalidate(getImageProvider);
+          customToast(title: "Image added successfully");
+        }
+      },
+    );
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
@@ -60,12 +75,10 @@ class UserInformation extends ConsumerWidget {
                     onTap: () {
                       getImage(context, cameraBtn: () async {
                         await provider.pickProfileImage(ImageSource.camera);
-                        router.pop();
-                        ref.invalidate(getImageProvider);
+                        // ref.invalidate(getImageProvider);
                       }, galleryBtn: () async {
                         await provider.pickProfileImage(ImageSource.gallery);
-                        router.pop();
-                        ref.invalidate(getImageProvider);
+                        // ref.invalidate(getImageProvider);
                       });
                     },
                     child: CircleAvatar(

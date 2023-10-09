@@ -42,78 +42,94 @@ class ResetPasswordPage extends ConsumerWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Form(
           key: provider.formKey1,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(
-                Icons.info_outline,
-                color: AppColors.orange,
-                size: 50.sp,
-              ),
-              SizedBox(height: context.height * 0.02),
-              Text(
-                "Reset Your Password",
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.labelMedium,
-              ),
-              SizedBox(height: context.height * 0.05),
-              CustomResetPasswordField(
-                  validator: (value) {
-                    if (value!.trim().isEmpty) {
-                      return "Please Enter New Password";
-                    } else if (value.trim().length < 6) {
-                      return "Password must be at least 6 characters long";
-                    } else {
-                      return null;
-                    }
-                  },
-                  onChanged: (password) {
-                    provider.password = password;
-                  },
-                  hint: "Enter new password"),
-              SizedBox(height: context.height * 0.03),
-              CustomResetPasswordField(
-                  validator: (value) {
-                    if (value!.trim().isEmpty) {
-                      return "Please Re-Enter New Password";
-                    } else if (value.trim().length < 6) {
-                      return "Password must be at least 6 characters long";
-                    } else if (value != provider.password) {
-                      return "Password must be same as above";
-                    } else {
-                      return null;
-                    }
-                  },
-                  hint: "Re enter new password"),
-              SizedBox(height: context.height * 0.1),
-              SizedBox(
-                width: double.infinity,
-                height: context.height * 0.06,
-                child: ElevatedButton(
-                  onPressed: () {
-                    if (provider.formKey1.currentState!.validate()) {
-                      showMyDialog(context,
-                          btnTitle: "Submit",
-                          header: "Reset Password",
-                          title:
-                              "We'll send a link for your email to reset your password",
-                          onPressed: () async {
-                        await provider.resetPassword();
-                      });
-                    }
-                  },
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.orange),
-                  child: state is ResetPasswordLoading
-                      ? const CustomCircleIndicator()
-                      : Text(
-                          "Reset Password",
-                          style: AppTextStyle.lato700Style14
-                              .copyWith(color: Theme.of(context).canvasColor),
-                        ),
+          child: CustomScrollView(
+            physics: const BouncingScrollPhysics(),
+            slivers: [
+              SliverToBoxAdapter(
+                  child: SizedBox(height: context.height * 0.15)),
+              SliverToBoxAdapter(
+                child: Icon(
+                  Icons.info_outline,
+                  color: AppColors.orange,
+                  size: 50.sp,
                 ),
               ),
+              SliverToBoxAdapter(
+                  child: SizedBox(height: context.height * 0.02)),
+              SliverToBoxAdapter(
+                child: Text(
+                  "Reset Your Password",
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.labelMedium,
+                ),
+              ),
+              SliverToBoxAdapter(
+                  child: SizedBox(height: context.height * 0.05)),
+              SliverToBoxAdapter(
+                child: CustomResetPasswordField(
+                    validator: (value) {
+                      if (value!.trim().isEmpty) {
+                        return "Please Enter New Password";
+                      } else if (value.trim().length < 6) {
+                        return "Password must be at least 6 characters long";
+                      } else {
+                        return null;
+                      }
+                    },
+                    onChanged: (password) {
+                      provider.password = password;
+                    },
+                    hint: "Enter new password"),
+              ),
+              SliverToBoxAdapter(
+                  child: SizedBox(height: context.height * 0.03)),
+              SliverToBoxAdapter(
+                child: CustomResetPasswordField(
+                    validator: (value) {
+                      if (value!.trim().isEmpty) {
+                        return "Please Re-Enter New Password";
+                      } else if (value.trim().length < 6) {
+                        return "Password must be at least 6 characters long";
+                      } else if (value != provider.password) {
+                        return "Password must be same as above";
+                      } else {
+                        return null;
+                      }
+                    },
+                    hint: "Re enter new password"),
+              ),
+              SliverToBoxAdapter(child: SizedBox(height: context.height * 0.1)),
+              SliverToBoxAdapter(
+                child: SizedBox(
+                  width: double.infinity,
+                  height: context.height * 0.06,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      if (provider.formKey1.currentState!.validate()) {
+                        showMyDialog(context,
+                            btnTitle: "Submit",
+                            header: "Reset Password",
+                            title:
+                                "We'll send a link for your email to reset your password",
+                            onPressed: () async {
+                          await provider.resetPassword();
+                        });
+                      }
+                    },
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.orange),
+                    child: state is ResetPasswordLoading
+                        ? const CustomCircleIndicator()
+                        : Text(
+                            "Reset Password",
+                            style: AppTextStyle.lato700Style14
+                                .copyWith(color: Theme.of(context).canvasColor),
+                          ),
+                  ),
+                ),
+              ),
+              SliverToBoxAdapter(
+                  child: SizedBox(height: context.height * 0.05)),
             ],
           ),
         ),

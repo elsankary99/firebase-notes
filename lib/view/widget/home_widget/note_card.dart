@@ -29,7 +29,7 @@ class NoteCard extends StatelessWidget {
               style: Theme.of(context)
                   .textTheme
                   .bodyLarge!
-                  .copyWith(fontSize: 25.sp)),
+                  .copyWith(fontSize: 25.sp, color: Colors.white)),
           SizedBox(height: context.height * 0.01),
           Expanded(
             child: Text(
@@ -39,7 +39,7 @@ class NoteCard extends StatelessWidget {
               style: Theme.of(context)
                   .textTheme
                   .bodyLarge!
-                  .copyWith(fontSize: 18.sp),
+                  .copyWith(fontSize: 18.sp, color: Colors.white),
             ),
           ),
         ]),
