@@ -21,14 +21,14 @@ ThemeData getAppTheme(BuildContext context, bool isDarkTheme) {
           bodyColor: isDarkTheme ? Colors.white : Colors.black,
         ),
     switchTheme: SwitchThemeData(
-      thumbColor: MaterialStateProperty.all(Colors.orange),
+      thumbColor: MaterialStateProperty.all(AppColors.orange),
     ),
     listTileTheme: ListTileThemeData(
       titleTextStyle: Theme.of(context)
           .textTheme
           .bodyLarge!
           .copyWith(color: isDarkTheme ? Colors.white : Colors.black),
-      iconColor: Colors.orange,
+      iconColor: AppColors.orange,
     ),
     appBarTheme: AppBarTheme(
         iconTheme: const IconThemeData(color: AppColors.orange),
